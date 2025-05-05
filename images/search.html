@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<!-- Begin: header -->
+<!--[if lt IE 7]>      <html  lang="en" dir="ltr" prefix="wgs84_pos: http://www.w3.org/2003/01/geo/wgs84_pos#  org: https://www.w3.org/TR/vocab-org/#org:  xs: http://www.w3.org/2001/XMLSchema#  ldp: http://www.w3.org/ns/ldp#  dc11: http://purl.org/dc/elements/1.1/  dcterms: http://purl.org/dc/terms/  nfo: http://www.semanticdesktop.org/ontologies/2007/03/22/nfo/v1.1/  ebucore: http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#  fedora: http://fedora.info/definitions/v4/repository#  owl: http://www.w3.org/2002/07/owl#  ore: http://www.openarchives.org/ore/terms/  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#  rdau: http://rdaregistry.info/Elements/u/  islandora: http://islandora.ca/  pcdm: http://pcdm.org/models#  use: http://pcdm.org/use#  iana: http://www.iana.org/assignments/relation/  premis: http://www.loc.gov/premis/rdf/v1#  premis3: http://www.loc.gov/premis/rdf/v3/  co: http://purl.org/co/  relators: http://id.loc.gov/vocabulary/relators/  content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# " class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html  lang="en" dir="ltr" prefix="wgs84_pos: http://www.w3.org/2003/01/geo/wgs84_pos#  org: https://www.w3.org/TR/vocab-org/#org:  xs: http://www.w3.org/2001/XMLSchema#  ldp: http://www.w3.org/ns/ldp#  dc11: http://purl.org/dc/elements/1.1/  dcterms: http://purl.org/dc/terms/  nfo: http://www.semanticdesktop.org/ontologies/2007/03/22/nfo/v1.1/  ebucore: http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#  fedora: http://fedora.info/definitions/v4/repository#  owl: http://www.w3.org/2002/07/owl#  ore: http://www.openarchives.org/ore/terms/  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#  rdau: http://rdaregistry.info/Elements/u/  islandora: http://islandora.ca/  pcdm: http://pcdm.org/models#  use: http://pcdm.org/use#  iana: http://www.iana.org/assignments/relation/  premis: http://www.loc.gov/premis/rdf/v1#  premis3: http://www.loc.gov/premis/rdf/v3/  co: http://purl.org/co/  relators: http://id.loc.gov/vocabulary/relators/  content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# " class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html  lang="en" dir="ltr" prefix="wgs84_pos: http://www.w3.org/2003/01/geo/wgs84_pos#  org: https://www.w3.org/TR/vocab-org/#org:  xs: http://www.w3.org/2001/XMLSchema#  ldp: http://www.w3.org/ns/ldp#  dc11: http://purl.org/dc/elements/1.1/  dcterms: http://purl.org/dc/terms/  nfo: http://www.semanticdesktop.org/ontologies/2007/03/22/nfo/v1.1/  ebucore: http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#  fedora: http://fedora.info/definitions/v4/repository#  owl: http://www.w3.org/2002/07/owl#  ore: http://www.openarchives.org/ore/terms/  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#  rdau: http://rdaregistry.info/Elements/u/  islandora: http://islandora.ca/  pcdm: http://pcdm.org/models#  use: http://pcdm.org/use#  iana: http://www.iana.org/assignments/relation/  premis: http://www.loc.gov/premis/rdf/v1#  premis3: http://www.loc.gov/premis/rdf/v3/  co: http://purl.org/co/  relators: http://id.loc.gov/vocabulary/relators/  content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# " class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html  lang="en" dir="ltr" prefix="wgs84_pos: http://www.w3.org/2003/01/geo/wgs84_pos#  org: https://www.w3.org/TR/vocab-org/#org:  xs: http://www.w3.org/2001/XMLSchema#  ldp: http://www.w3.org/ns/ldp#  dc11: http://purl.org/dc/elements/1.1/  dcterms: http://purl.org/dc/terms/  nfo: http://www.semanticdesktop.org/ontologies/2007/03/22/nfo/v1.1/  ebucore: http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#  fedora: http://fedora.info/definitions/v4/repository#  owl: http://www.w3.org/2002/07/owl#  ore: http://www.openarchives.org/ore/terms/  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#  rdau: http://rdaregistry.info/Elements/u/  islandora: http://islandora.ca/  pcdm: http://pcdm.org/models#  use: http://pcdm.org/use#  iana: http://www.iana.org/assignments/relation/  premis: http://www.loc.gov/premis/rdf/v1#  premis3: http://www.loc.gov/premis/rdf/v3/  co: http://purl.org/co/  relators: http://id.loc.gov/vocabulary/relators/  content: http://purl.org/rss/1.0/modules/content/  dc: http://purl.org/dc/terms/  foaf: http://xmlns.com/foaf/0.1/  og: http://ogp.me/ns#  rdfs: http://www.w3.org/2000/01/rdf-schema#  schema: http://schema.org/  sioc: http://rdfs.org/sioc/ns#  sioct: http://rdfs.org/sioc/types#  skos: http://www.w3.org/2004/02/skos/core#  xsd: http://www.w3.org/2001/XMLSchema# " class="h-100" lang="en" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8" />
+<noscript><meta http-equiv="Refresh" content="0; URL=/big_pipe/no-js?destination=/search%3Fa%255B0%255D%255Bf%255D%3Dall%26a%255B0%255D%255Bi%255D%3DIS%26a%255B0%255D%255Bv%255D%3Dshoe%26f%255B0%255D%3Dsubjects_linked_loc%253ALetters" />
+</noscript><script>var _paq = _paq || [];(function(){var u=(("https:" == document.location.protocol) ? "https://localhost:8000/matomo/" : "http://localhost:8000/matomo/");_paq.push(["setSiteId", "1"]);_paq.push(["setTrackerUrl", u+"matomo.php"]);_paq.push(["setDoNotTrack", 1]);if (!window.matomo_search_results_active) {_paq.push(["trackPageView"]);}_paq.push(["setIgnoreClasses", ["no-tracking","colorbox"]]);_paq.push(["enableLinkTracking"]);var d=document,g=d.createElement("script"),s=d.getElementsByTagName("script")[0];g.type="text/javascript";g.defer=true;g.async=true;g.src=u+"matomo.js";s.parentNode.insertBefore(g,s);})();</script>
+<meta name="Generator" content="Drupal 10 (https://www.drupal.org)" />
+<meta name="MobileOptimized" content="width" />
+<meta name="HandheldFriendly" content="true" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="icon" href="/themes/contrib/uofm_theme/favicon.ico" type="image/vnd.microsoft.icon" />
+
+    <title id="title">Search Content | DAMS 2.0 NG</title>
+    <link rel="stylesheet" media="all" href="/core/themes/stable9/css/core/components/progress.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/core/components/ajax-progress.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/align.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/fieldgroup.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/container-inline.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/clearfix.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/details.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/hidden.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/item-list.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/js.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/nowrap.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/position-container.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/reset-appearance.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/resize.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/system-status-counter.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/system-status-report-counters.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/system-status-report-general-info.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/system/components/tablesort.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/modules/contrib/advanced_search/css/advanced_search.pager.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/claro/css/components/toolbar.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/contextual/contextual.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/contextual/contextual.toolbar.css?svli8q" />
+<link rel="stylesheet" media="all" href="/modules/contrib/devel/css/devel.toolbar.css?svli8q" />
+<link rel="stylesheet" media="screen" href="/core/themes/stable9/css/tour/tour.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/views/views.module.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/claro/css/state/toolbar.menu.css?svli8q" />
+<link rel="stylesheet" media="all" href="/modules/contrib/admin_toolbar/css/admin.toolbar.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/claro/css/theme/toolbar.theme.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/claro/css/theme/toolbar.icons.theme.css?svli8q" />
+<link rel="stylesheet" media="all" href="/modules/contrib/context_active_inspector/css/context_active_inspector.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/contextual/contextual.theme.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/contextual/contextual.icons.theme.css?svli8q" />
+<link rel="stylesheet" media="all" href="/modules/contrib/facets/css/hierarchical.css?svli8q" />
+<link rel="stylesheet" media="all" href="/modules/contrib/field_report/css/field_report.admin.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/shortcut/shortcut.theme.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/shortcut/shortcut.icons.theme.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/user/user.icons.admin.css?svli8q" />
+<link rel="stylesheet" media="all" href="/core/themes/stable9/css/core/assets/vendor/normalize-css/normalize.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/action-links.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/breadcrumb.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/container-inline.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/details.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/exposed-filters.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/field.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/form.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/icons.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/inline-form.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/item-list.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/links.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/menu.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/more-link.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/pager.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/tabledrag.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/tableselect.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/tablesort.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/textarea.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/ui-dialog.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/messages.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/bootstrap5/css/components/progress.css?svli8q" />
+<link rel="stylesheet" media="all" href="/themes/contrib/uofm_theme/css/style.css?svli8q" />
+
+      <script src="/sites/default/files/dams_ng/js/js_CVwuCPfhDpfq6vvdufIGCkZJXy2q70PdafyUAR8Y4z4.js?scope=header&amp;delta=0&amp;language=en&amp;theme=uofm_theme&amp;include=eJx9kEkOgzAMRS-UYdUD9CTIBENDExwlDnD8EiBCQm03nt73IEPn7dQwkWsh6tMrjogCfiL1ohmjaO3QBBtQ10C0RJw4QnjoK5Rjkg4YEwtDE-PKGZzuYg7g1FWRzk7v9F9yHrGJIlYMhu2Me7fowSCnSo5MFSIX2w3I3wWzxSVJGGGtPFHP20RvWXhg8qQPJ27fuOcKk4GAz_K5jeUCchT7Ar1bVdZ8AOlpkJQ"></script>
+
+        <!-- UML branded page top -->
+        <!--<script src="//apps.lib.umanitoba.ca/public/js/templates/ngwe/page-top.js?v=1.1.1"></script>-->
+                        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Chrome, Firefox OS, and Opera -->
+        <meta name="theme-color" content="#f2a900">
+        <!-- Windows Phone -->
+        <meta name="msapplication-navbutton-color" content="#f2a900">
+        <!-- iOS Safari -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="#f2a900">
+        <!-- Favicon -->
+        <!-- <link rel="shortcut icon" href="//apps.lib.umanitoba.ca/public/imgs/ngwe/favicon.ico?v=2.0.0"> -->
+        <!-- Roboto Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+        <!-- Font Awesome Fonts -->
+        <link rel="stylesheet" href="//apps.lib.umanitoba.ca/public/css/fonts/font-awesome.min.css?v=1.0.0">
+        </head>
+<body data-pubapp="" class="toolbar-loading user-logged-in path-search    bg-">
+<a href="#main-content" class="visually-hidden focusable skip-link">
+  Skip to main content
+</a>
+<header class="uom-header">
+  <div class="territory container-fluid align-center">
+    <p>
+      <span>The University of Manitoba campuses are located on original lands of Anishinaabeg, Cree, Oji-Cree, Dakota, and Dene peoples, and on the homeland of the M&eacute;tis Nation.</span>
+      <span>
+						<a href="http://umanitoba.ca/admin/indigenous_connect/5728.html" class="bold">More</a>
+					</span>
+    </p>
+  </div>
+  <div class="uom-main-header container">
+    <section class="site-header top text-align-right">
+                    <span class="float-left">
+						<a href="#" class="territory-acknowledgement">Territory acknowledgement</a>
+					</span>
+      <div class="inline-block">
+        <nav role="navigation" class="functional-menu">
+          <ul class="menu">
+            <li class="menu-item">
+              <a href="https://umanitoba.ca/current-students">Current students</a>
+            </li>
+            <li class="menu-item">
+              <a href="https://umanitoba.ca/faculty-and-staff">Faculty and staff</a>
+            </li>
+            <li class="menu-item">
+              <a href="https://umanitoba.ca/community/alumni">Alumni</a>
+            </li>
+            <li class="menu-item">
+              <a href="https://umanitoba.ca/webmail/">Email</a>
+            </li>
+            <li class="menu-item">
+              <a href="https://news.umanitoba.ca/">News and events</a>
+            </li>
+          </ul>
+        </nav><nav role="navigation" class="global-cta-menu">
+          <ul class="menu">
+            <li class="menu-item">
+              <a href="http://umanitoba.ca/visit-university-manitoba">Visit</a>
+            </li>
+            <li class="menu-item">
+              <a href="http://umanitoba.ca/admissions/apply-um">Apply</a>
+            </li>
+            <li class="menu-item">
+              <a href="http://umanitoba.ca/community/giving">Donate</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+    <section class="site-header bottom text-align-left">
+      <a href="https://umanitoba.ca/libraries/" class="site-header-logo">
+        <img src="//apps.lib.umanitoba.ca/public/imgs/ngwe/logos/uml_logo_right_114h.png" alt="Home" class="desktop">
+        <img src="//apps.lib.umanitoba.ca/public/imgs/ngwe/logos/uml_logo_right_mobi_72h.png" alt="Home" class="mobile">
+      </a>
+      <a href="https://umanitoba.ca/search" class="header-search float-right">
+        <img src="//apps.lib.umanitoba.ca/public/imgs/ngwe/icon-search.png" alt="Search Icon" />
+      </a>
+      <nav role="navigation" class="main-navigation-menu float-right">
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/admissions">Admissions</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/academics">Academics</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/research">Research</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/student-supports">Student Supports</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/community">Community</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/about-um">About U of M</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="mini-menu float-right">
+        <a href="https://umanitoba.ca/search" class="mini-search">
+          <img src="//apps.lib.umanitoba.ca/public/imgs/ngwe/m-icon-search.png" alt="Search Icon" />
+        </a>
+        <a href="#" class="mini-hamburger">
+          <img src="//apps.lib.umanitoba.ca/public/imgs/ngwe/icon-hamburger.png" alt="Search Icon" />
+        </a>
+        <a href="#" class="mini-close-thin display-none">
+          <img src="//apps.lib.umanitoba.ca/public/imgs/ngwe/icon-close.png" alt="Search Icon" />
+        </a>
+      </div>
+    </section>
+  </div>
+  <div class="mobile-drawer display-none">
+    <div class="container">
+      <nav role="navigation" class="mobile-drawer-main-navigation-menu">
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/admissions">Admissions</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/academics">Academics</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/research" class="active">Research</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/student-supports">Student Supports</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/community">Community</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/about-um">About U of M</a>
+          </li>
+        </ul>
+      </nav>
+      <nav role="navigation" class="mobile-drawer-functional-menu">
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/current-students">Current students</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/faculty-and-staff">Faculty and staff</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/community/alumni">Alumni</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://umanitoba.ca/webmail/">Email</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://news.umanitoba.ca/">News and events</a>
+          </li>
+        </ul>
+      </nav>
+      <nav role="navigation" class="mobile-drawer-global-cta-menu">
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="http://umanitoba.ca/visit-university-manitoba" class="uom-btn">Visit</a>
+          </li>
+          <li class="menu-item">
+            <a href="http://umanitoba.ca/admissions/apply-um" class="uom-btn">Apply</a>
+          </li>
+          <li class="menu-item">
+            <a href="http://umanitoba.ca/community/giving" class="uom-btn">Donate</a>
+          </li>
+        </ul>
+      </nav>
+      <p class="mobile-drawer-territory">
+        <span>The University of Manitoba campuses are located on original lands of Anishinaabeg, Cree, Oji-Cree, Dakota, and Dene peoples, and on the homeland of the M&eacute;tis Nation.</span>
+        <span>
+                    <a href="http://umanitoba.ca/admin/indigenous_connect/5728.html" class="bold">More</a>
+                </span>
+      </p>
+      <address class="mobile-drawer-address">
+        <p>
+          <strong>University of Manitoba Libraries</strong>
+          <br>
+          <span>Winnipeg, Manitoba Canada, R3T 2N2</span>
+        </p>
+        <a href="http://umanitoba.ca/libraries/about/map.php" class="uom-btn">Maps and directions</a>
+      </address>
+      <nav class="mobile-drawer-telephone">
+        <a href="tel:+1-204-474-9881">1-204-474-9881 (Winnipeg)</a>
+        <br>
+        <a href="tel:+1-204-474-9341">Emergency: 204-474-9341</a>
+        <br>
+        <a href="http://umanitoba.ca/campus/security/contact.html"><strong>Emergency Information</strong></a>
+      </nav>
+      <nav class="mobile-drawer-footer">
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="http://umanitoba.ca/careers/">Careers</a>
+          </li>
+          <li class="menu-item">
+            <a href="http://umanitoba.ca/admin/mco/contactus.html">Media</a>
+          </li>
+          <li class="menu-item">
+            <a href="http://umanitoba.ca/people">People search</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://research.ad.umanitoba.ca/mrt/pubapp/exp_search.php">Research experts</a>
+          </li>
+          <li class="menu-item">
+            <a href="http://umanitoba.ca/access_and_privacy/Privacy_Statement.html">Privacy policy</a>
+          </li>
+          <li class="menu-item">
+            <a href="http://umanitoba.ca/admin/vp_admin/ofp/ohrcm/accessibility/">Web accessibility</a>
+          </li>
+          <li class="menu-item">
+            <a href="http://umanitoba.ca/admin/vp_admin/ofp/termsofuse.html">Terms of use</a>
+          </li>
+          <li class="menu-item">
+            <a href="mailto:libsupp@umanitoba.ca">Website feedback</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="mobile-drawer-front-centre">
+        <img src="//apps.lib.umanitoba.ca/public/imgs/front-and-centre-logo.png" alt="Logo for Front and Centre">
+        <a href="https://frontandcentre.cc.umanitoba.ca/">The Campaign for the University of Manitoba</a>
+      </div>
+      <nav class="mobile-drawer-social">
+        <ul class="social-links" aria-label="University of Manitoba Social Media Accounts">
+          <li class="social-link-item">
+            <a href="https://twitter.com/dafoe_library/" class="external-link" target="_blank" aria-label="Follow us on Twitter">
+              <img src="//apps.lib.umanitoba.ca/public/imgs/ngwe/icon-twitter.png" alt="Search Icon" />
+            </a>
+          </li>
+          <li class="social-link-item">
+            <a href="https://www.facebook.com/DafoeLibrary/" class="external-link" target="_blank" aria-label="Follow us on Facebook">
+              <img src="//apps.lib.umanitoba.ca/public/imgs/ngwe/icon-facebook.png" alt="Search Icon" />
+            </a>
+          </li>
+          <li class="social-link-item">
+            <a href="https://www.instagram.com/dafoe_library/" class="external-link" target="_blank" aria-label="Follow us on Instagram">
+              <img src="//apps.lib.umanitoba.ca/public/imgs/ngwe/icon-instagram.png" alt="Search Icon" />
+            </a>
+          </li>
+          <li class="social-link-item">
+            <a href="https://www.youtube.com/channel/UCX_rdVBCQhQ7l97_k0T63fw" class="external-link" target="_blank" aria-label="Follow us on YouTube">
+              <img src="//apps.lib.umanitoba.ca/public/imgs/ngwe/icon-youtube.png" alt="Search Icon" />
+            </a>
+          </li>
+        </ul>
+        <a href="http://umanitoba.ca/admin/mco/new_media/socialmedia.html" class="all-socials">
+          <span>All social</span>
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>
+<!-- End: header -->
+<main>
+  <div class="container">
+    <div id="toolbar-administration" role="group" aria-label="Site administration toolbar" data-drupal-claro-processed-toolbar class="toolbar claro-toolbar">
+  <nav id="toolbar-bar" role="navigation" aria-label="Toolbar items" class="toolbar-bar clearfix">
+    <h2 class="visually-hidden">Toolbar items</h2>
+                <div class="home-toolbar-tab toolbar-tab">
+        <a href="/" title="Return to site content" class="toolbar-icon toolbar-icon-escape-admin toolbar-item" data-toolbar-escape-admin>Back to site</a>
+        <div><nav class="toolbar-lining clearfix" role="navigation"></nav></div>      </div>
+                <div class="toolbar-tab">
+        <a href="/admin" title="Admin menu" class="toolbar-icon toolbar-icon-menu trigger toolbar-item" data-drupal-subtrees="" id="toolbar-item-administration" data-toolbar-tray="toolbar-item-administration-tray" role="button" aria-pressed="false">Manage</a>
+        <div id="toolbar-item-administration-tray" data-toolbar-tray="toolbar-item-administration-tray" class="toolbar-tray"><nav class="toolbar-lining clearfix" role="navigation" aria-label="Administration menu"><h3 class="toolbar-tray-name visually-hidden">Administration menu</h3><div class="toolbar-menu-administration"><ul class="toolbar-menu claro-toolbar-menu"><li class="menu-item menu-item--expanded"><a href="/admin/content" title="Find and manage content." class="toolbar-icon toolbar-icon-system-admin-content" data-drupal-link-system-path="admin/content">Content</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/content/comment" title="List and edit site comments and the comment approval queue." class="toolbar-icon toolbar-icon-comment-admin" data-drupal-link-system-path="admin/content/comment">Comments</a></li><li class="menu-item menu-item--expanded"><a href="/admin/content/missing-media/all" class="toolbar-icon toolbar-icon-views-viewviews-missing-media-page-9" title="" data-drupal-link-system-path="admin/content/missing-media/all">Missing Media</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/content/missing-media/extracted-text" class="toolbar-icon toolbar-icon-views-viewviews-missing-media-page-1" title="" data-drupal-link-system-path="admin/content/missing-media/extracted-text">Missing Extracted Text </a></li><li class="menu-item"><a href="/admin/content/missing-media/fits-file" class="toolbar-icon toolbar-icon-views-viewviews-missing-media-page-2" title="" data-drupal-link-system-path="admin/content/missing-media/fits-file">Missing FITS</a></li><li class="menu-item"><a href="/admin/content/missing-media/intermediate-file" class="toolbar-icon toolbar-icon-views-viewviews-missing-media-page-3" title="" data-drupal-link-system-path="admin/content/missing-media/intermediate-file">Missing Intermediate File</a></li><li class="menu-item"><a href="/admin/content/missing-media/original-file" class="toolbar-icon toolbar-icon-views-viewviews-missing-media-page-4" title="" data-drupal-link-system-path="admin/content/missing-media/original-file">Missing Original File</a></li><li class="menu-item"><a href="/admin/content/missing-media/preservation-master-file" class="toolbar-icon toolbar-icon-views-viewviews-missing-media-page-5" title="" data-drupal-link-system-path="admin/content/missing-media/preservation-master-file">Missing Preservation File</a></li><li class="menu-item"><a href="/admin/content/missing-media/service-file" class="toolbar-icon toolbar-icon-views-viewviews-missing-media-page-6" title="" data-drupal-link-system-path="admin/content/missing-media/service-file">Missing Service File</a></li><li class="menu-item"><a href="/admin/content/missing-media/thumbnail-image" class="toolbar-icon toolbar-icon-views-viewviews-missing-media-page-7" title="" data-drupal-link-system-path="admin/content/missing-media/thumbnail-image">Missing Thumbnail Image</a></li><li class="menu-item"><a href="/admin/content/missing-media/transcript" class="toolbar-icon toolbar-icon-views-viewviews-missing-media-page-8" title="" data-drupal-link-system-path="admin/content/missing-media/transcript">Missing Transcript</a></li></ul></li></ul></li><li class="menu-item menu-item--expanded"><a href="/admin/structure" title="Administer blocks, content types, menus, etc." class="toolbar-icon toolbar-icon-system-admin-structure" data-drupal-link-system-path="admin/structure">Structure</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/structure/block" title="Configure what block content appears in your site&#039;s sidebars and other regions." class="toolbar-icon toolbar-icon-block-admin-display" data-drupal-link-system-path="admin/structure/block">Block layout</a></li><li class="menu-item"><a href="/admin/structure/block-content" title="Create and manage fields, forms, and display settings for your content blocks." class="toolbar-icon toolbar-icon-entity-block-content-type-collection" data-drupal-link-system-path="admin/structure/block-content">Block types</a></li><li class="menu-item"><a href="/admin/structure/comment" title="Manage form and displays settings of comments." class="toolbar-icon toolbar-icon-entity-comment-type-collection" data-drupal-link-system-path="admin/structure/comment">Comment types</a></li><li class="menu-item"><a href="/admin/structure/contact" title="Create and manage contact forms." class="toolbar-icon toolbar-icon-entity-contact-form-collection" data-drupal-link-system-path="admin/structure/contact">Contact forms</a></li><li class="menu-item"><a href="/admin/structure/types" title="Create and manage fields, forms, and display settings for your content." class="toolbar-icon toolbar-icon-entity-node-type-collection" data-drupal-link-system-path="admin/structure/types">Content types</a></li><li class="menu-item menu-item--expanded"><a href="/admin/structure/context" title="Associate menus, views, blocks, etc. with different contexts to structure your site." class="toolbar-icon toolbar-icon-entity-context-collection" data-drupal-link-system-path="admin/structure/context">Context</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/structure/context/add" title="Add a new context." class="toolbar-icon toolbar-icon-entity-context-add-form" data-drupal-link-system-path="admin/structure/context/add">Add new context</a></li></ul></li><li class="menu-item menu-item--expanded"><a href="/admin/structure/display-modes" title="Configure what displays are available for your content and forms." class="toolbar-icon toolbar-icon-field-ui-display-mode" data-drupal-link-system-path="admin/structure/display-modes">Display modes</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/structure/display-modes/form" title="Manage custom form modes." class="toolbar-icon toolbar-icon-entity-entity-form-mode-collection" data-drupal-link-system-path="admin/structure/display-modes/form">Form modes</a></li><li class="menu-item"><a href="/admin/structure/display-modes/view" title="Manage custom view modes." class="toolbar-icon toolbar-icon-entity-entity-view-mode-collection" data-drupal-link-system-path="admin/structure/display-modes/view">View modes</a></li></ul></li><li class="menu-item"><a href="/admin/structure/media" title="Manage media types." class="toolbar-icon toolbar-icon-entity-media-type-collection" data-drupal-link-system-path="admin/structure/media">Media types</a></li><li class="menu-item"><a href="/admin/structure/menu" title="Manage menus and menu links." class="toolbar-icon toolbar-icon-entity-menu-collection" data-drupal-link-system-path="admin/structure/menu">Menus</a></li><li class="menu-item"><a href="/admin/structure/taxonomy" title="Manage tagging, categorization, and classification of your content." class="toolbar-icon toolbar-icon-entity-taxonomy-vocabulary-collection" data-drupal-link-system-path="admin/structure/taxonomy">Taxonomy</a></li><li class="menu-item"><a href="/admin/structure/taxonomy_manager/voc" title="Administer vocabularies with the Taxonomy Manager" class="toolbar-icon toolbar-icon-taxonomy-manager-admin" data-drupal-link-system-path="admin/structure/taxonomy_manager/voc">Taxonomy manager</a></li><li class="menu-item"><a href="/admin/structure/views" title="Manage customized lists of content." class="toolbar-icon toolbar-icon-entity-view-collection" data-drupal-link-system-path="admin/structure/views">Views</a></li><li class="menu-item"><a href="/admin/structure/linked_data_endpoint" title="List Linked Data Lookup Endpoint (bundles)" class="toolbar-icon toolbar-icon-entity-linked-data-endpoint-collection" data-drupal-link-system-path="admin/structure/linked_data_endpoint">Linked Data Lookup Endpoint</a></li></ul></li><li class="menu-item"><a href="/admin/appearance" title="Select and configure themes." class="toolbar-icon toolbar-icon-system-themes-page" data-drupal-link-system-path="admin/appearance">Appearance</a></li><li class="menu-item"><a href="/admin/modules" title="Add and install modules to extend site functionality." class="toolbar-icon toolbar-icon-system-modules-list" data-drupal-link-system-path="admin/modules">Extend</a></li><li class="menu-item menu-item--expanded"><a href="/admin/config" title="Administer settings." class="toolbar-icon toolbar-icon-system-admin-config" data-drupal-link-system-path="admin/config">Configuration</a><ul class="toolbar-menu"><li class="menu-item menu-item--expanded"><a href="/admin/config/people" title="Configure user accounts." class="toolbar-icon toolbar-icon-user-admin-index" data-drupal-link-system-path="admin/config/people">People</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/config/people/accounts" title="Configure default user account settings, including fields, registration requirements, and email messages." class="toolbar-icon toolbar-icon-entity-user-admin-form" data-drupal-link-system-path="admin/config/people/accounts">Account settings</a></li><li class="menu-item menu-item--expanded"><a href="/admin/config/people/miniorange_oauth_client/config_clc" title="Configure an Identity Provider that supports OAuth/OpenID protocol" class="toolbar-icon toolbar-icon-miniorange-oauth-client-config-clc" data-drupal-link-system-path="admin/config/people/miniorange_oauth_client/config_clc">miniOrange OAuth Client Configuration</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/config/people/miniorange_oauth_client/mapping" title="Attribute &amp; Role Mapping Tab" class="toolbar-icon toolbar-icon-miniorange-oauth-client-mapping" data-drupal-link-system-path="admin/config/people/miniorange_oauth_client/mapping">Attribute &amp; Role Mapping</a></li><li class="menu-item"><a href="/admin/config/people/miniorange_oauth_client/LoginReports" title="Login Reports Tab" class="toolbar-icon toolbar-icon-miniorange-oauth-client-login-reports" data-drupal-link-system-path="admin/config/people/miniorange_oauth_client/LoginReports">Login Reports</a></li><li class="menu-item"><a href="/admin/config/people/miniorange_oauth_client/Settings" title="Sign In Settings Tab" class="toolbar-icon toolbar-icon-miniorange-oauth-client-settings" data-drupal-link-system-path="admin/config/people/miniorange_oauth_client/Settings">Sign In Settings</a></li><li class="menu-item"><a href="/admin/config/people/miniorange_oauth_client/licensing" title="Upgrade Plans Tab" class="toolbar-icon toolbar-icon-miniorange-oauth-client-licensing" data-drupal-link-system-path="admin/config/people/miniorange_oauth_client/licensing">Upgrade Plans</a></li></ul></li></ul></li><li class="menu-item menu-item--expanded"><a href="/admin/config/system" title="Configure basic site settings, actions, and cron." class="toolbar-icon toolbar-icon-system-admin-config-system" data-drupal-link-system-path="admin/config/system">System</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/config/system/site-information" title="Change site name, email address, slogan, default front page, and error pages." class="toolbar-icon toolbar-icon-system-site-information-settings" data-drupal-link-system-path="admin/config/system/site-information">Basic site settings</a></li><li class="menu-item"><a href="/admin/config/system/actions" title="Create tasks that the system can execute." class="toolbar-icon toolbar-icon-action-admin" data-drupal-link-system-path="admin/config/system/actions">Actions</a></li><li class="menu-item"><a href="/admin/config/system/matomo" title="Configure the settings used to generate your Matomo tracking code." class="toolbar-icon toolbar-icon-matomo-admin-settings-form" data-drupal-link-system-path="admin/config/system/matomo">Matomo Analytics</a></li><li class="menu-item"><a href="/admin/config/system/cron" title="Manage automatic site maintenance tasks." class="toolbar-icon toolbar-icon-system-cron-settings" data-drupal-link-system-path="admin/config/system/cron">Cron</a></li><li class="menu-item"><a href="/admin/config/system/keys" title="Manage site-wide keys." class="toolbar-icon toolbar-icon-entity-key-collection" data-drupal-link-system-path="admin/config/system/keys">Keys</a></li><li class="menu-item"><a href="/admin/config/system/jwt" title="Configures the JWT Authentication module" class="toolbar-icon toolbar-icon-jwt-jwt-config-form" data-drupal-link-system-path="admin/config/system/jwt">JWT Authentication</a></li></ul></li><li class="menu-item menu-item--expanded"><a href="/admin/config/content" title="Configure content formatting and authoring." class="toolbar-icon toolbar-icon-system-admin-config-content" data-drupal-link-system-path="admin/config/content">Content authoring</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/config/content/formats" title="Select and configure text editors, and how content is filtered when displayed." class="toolbar-icon toolbar-icon-filter-admin-overview" data-drupal-link-system-path="admin/config/content/formats">Text formats and editors</a></li></ul></li><li class="menu-item menu-item--expanded"><a href="/admin/config/user-interface" title="Configure the administrative user interface." class="toolbar-icon toolbar-icon-system-admin-config-ui" data-drupal-link-system-path="admin/config/user-interface">User interface</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/config/user-interface/admin-toolbar" title="Configure the Admin Toolbar module." class="toolbar-icon toolbar-icon-admin-toolbar-settings" data-drupal-link-system-path="admin/config/user-interface/admin-toolbar">Admin Toolbar</a></li><li class="menu-item"><a href="/admin/config/user-interface/coi" title="Modify settings for Configuration Override Inspector." class="toolbar-icon toolbar-icon-coi-coi-settings" data-drupal-link-system-path="admin/config/user-interface/coi">Config Override Inspector Settings</a></li><li class="menu-item"><a href="/admin/config/user-interface/shortcut" title="Add and modify shortcut sets." class="toolbar-icon toolbar-icon-entity-shortcut-set-collection" data-drupal-link-system-path="admin/config/user-interface/shortcut">Shortcuts</a></li><li class="menu-item"><a href="/admin/config/user-interface/taxonomy-manager-settings" title="Advanced settings for the Taxonomy Manager" class="toolbar-icon toolbar-icon-taxonomy-manager-settings" data-drupal-link-system-path="admin/config/user-interface/taxonomy-manager-settings">Taxonomy manager</a></li></ul></li><li class="menu-item menu-item--expanded"><a href="/admin/config/development" title="Configure and use development tools." class="toolbar-icon toolbar-icon-system-admin-config-development" data-drupal-link-system-path="admin/config/development">Development</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/config/development/performance" title="Configure caching and bandwidth optimization." class="toolbar-icon toolbar-icon-system-performance-settings" data-drupal-link-system-path="admin/config/development/performance">Performance</a></li><li class="menu-item"><a href="/admin/config/development/settings" title="Configure theme development settings" class="toolbar-icon toolbar-icon-system-development-settings" data-drupal-link-system-path="admin/config/development/settings">Development settings</a></li><li class="menu-item"><a href="/admin/config/development/logging" title="Configure the display of error messages and database logging." class="toolbar-icon toolbar-icon-system-logging-settings" data-drupal-link-system-path="admin/config/development/logging">Logging and errors</a></li><li class="menu-item"><a href="/admin/config/development/maintenance" title="Take the site offline for updates and other maintenance tasks." class="toolbar-icon toolbar-icon-system-site-maintenance-mode" data-drupal-link-system-path="admin/config/development/maintenance">Maintenance mode</a></li><li class="menu-item"><a href="/admin/config/development/configuration" title="Import and export your configuration." class="toolbar-icon toolbar-icon-config-sync" data-drupal-link-system-path="admin/config/development/configuration">Configuration synchronization</a></li><li class="menu-item"><a href="/admin/config/development/devel" title="Helper functions, pages, and blocks to assist Drupal developers. The devel blocks can be managed via the block administration page." class="toolbar-icon toolbar-icon-devel-admin-settings" data-drupal-link-system-path="admin/config/development/devel">Devel settings</a></li></ul></li><li class="menu-item menu-item--expanded"><a href="/admin/config/media" class="toolbar-icon toolbar-icon-system-admin-config-media" title="" data-drupal-link-system-path="admin/config/media">Media</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/config/media/filehash" title="Configure file hash settings." class="toolbar-icon toolbar-icon-filehash-admin" data-drupal-link-system-path="admin/config/media/filehash">File hash</a></li><li class="menu-item menu-item--expanded"><a href="/admin/config/media/file-system" title="Configure the location of uploaded files and how they are accessed." class="toolbar-icon toolbar-icon-system-file-system-settings" data-drupal-link-system-path="admin/config/media/file-system">File system</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/config/media/file-system/flysystem" title="Configure settings related to Flysystem." class="toolbar-icon toolbar-icon-flysystem-config" data-drupal-link-system-path="admin/config/media/file-system/flysystem">Flysystem</a></li></ul></li><li class="menu-item"><a href="/admin/config/media/image-styles" title="Configure styles that can be used for resizing or adjusting images on display." class="toolbar-icon toolbar-icon-entity-image-style-collection" data-drupal-link-system-path="admin/config/media/image-styles">Image styles</a></li><li class="menu-item"><a href="/admin/config/media/media-settings" title="Manage media settings." class="toolbar-icon toolbar-icon-media-settings" data-drupal-link-system-path="admin/config/media/media-settings">Media settings</a></li><li class="menu-item"><a href="/admin/config/media/mirador" title="Configure the Mirador viewer settings." class="toolbar-icon toolbar-icon-islandora-mirador-miradorconfig" data-drupal-link-system-path="admin/config/media/mirador">Mirador Settings</a></li><li class="menu-item"><a href="/admin/config/media/openseadragon" title="Configure the OpenSeadragon viewer settings." class="toolbar-icon toolbar-icon-openseadragon-admin-settings" data-drupal-link-system-path="admin/config/media/openseadragon">OpenSeadragon settings</a></li><li class="menu-item"><a href="/admin/config/media/responsive-image-style" title="Manage responsive image styles." class="toolbar-icon toolbar-icon-entity-responsive-image-style-collection" data-drupal-link-system-path="admin/config/media/responsive-image-style">Responsive image styles</a></li><li class="menu-item"><a href="/admin/config/media/image-toolkit" title="Choose which image toolkit to use if you have installed optional toolkits." class="toolbar-icon toolbar-icon-system-image-toolkit-settings" data-drupal-link-system-path="admin/config/media/image-toolkit">Image toolkit</a></li><li class="menu-item"><a href="/admin/config/media/pdfjs" title="Configuration for the PDF module." class="toolbar-icon toolbar-icon-pdf-config-form" data-drupal-link-system-path="admin/config/media/pdfjs">PDF.js</a></li></ul></li><li class="menu-item menu-item--expanded"><a href="/admin/config/search" title="Configure site search, metadata, and search engine optimization." class="toolbar-icon toolbar-icon-system-admin-config-search" data-drupal-link-system-path="admin/config/search">Search and metadata</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/config/search/path" title="Add custom URLs to existing paths." class="toolbar-icon toolbar-icon-entity-path-alias-collection" data-drupal-link-system-path="admin/config/search/path">URL aliases</a></li><li class="menu-item"><a href="/admin/config/search/jsonld" title="Configure Jsonld settings" class="toolbar-icon toolbar-icon-system-jsonld-settings" data-drupal-link-system-path="admin/config/search/jsonld">JsonLD</a></li><li class="menu-item"><a href="/admin/config/search/search-api" title="Create and configure search indexes and servers." class="toolbar-icon toolbar-icon-search-api-overview" data-drupal-link-system-path="admin/config/search/search-api">Search API</a></li><li class="menu-item"><a href="/admin/config/search/facets" title="Create and configure facets and configure existing facet sources." class="toolbar-icon toolbar-icon-entity-facets-facet-collection" data-drupal-link-system-path="admin/config/search/facets">Facets</a></li><li class="menu-item"><a href="/admin/config/search/advanced" title="Configure Islandora Advanced Search settings" class="toolbar-icon toolbar-icon-advanced-search-settings" data-drupal-link-system-path="admin/config/search/advanced">Advanced Search Settings</a></li></ul></li><li class="menu-item menu-item--expanded"><a href="/admin/config/regional" title="Configure regional settings, localization, and translation." class="toolbar-icon toolbar-icon-system-admin-config-regional" data-drupal-link-system-path="admin/config/regional">Region and language</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/config/regional/settings" title="Configure the locale and timezone settings." class="toolbar-icon toolbar-icon-system-regional-settings" data-drupal-link-system-path="admin/config/regional/settings">Regional settings</a></li><li class="menu-item"><a href="/admin/config/regional/date-time" title="Configure how dates and times are displayed." class="toolbar-icon toolbar-icon-entity-date-format-collection" data-drupal-link-system-path="admin/config/regional/date-time">Date and time formats</a></li><li class="menu-item"><a href="/admin/config/regional/language" title="Configure languages for content, interface, and configuration." class="toolbar-icon toolbar-icon-entity-configurable-language-collection" data-drupal-link-system-path="admin/config/regional/language">Languages</a></li><li class="menu-item"><a href="/admin/config/regional/content-language" title="Configure language and translation support for content." class="toolbar-icon toolbar-icon-language-content-settings-page" data-drupal-link-system-path="admin/config/regional/content-language">Content language and translation</a></li></ul></li><li class="menu-item menu-item--expanded"><a href="/admin/config/services" class="toolbar-icon toolbar-icon-system-admin-config-services" title="" data-drupal-link-system-path="admin/config/services">Web services</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/config/services/consumer" title="Register and configure the decoupled consumers to your API." class="toolbar-icon toolbar-icon-consumers-admin-config-services" data-drupal-link-system-path="admin/config/services/consumer">Consumers</a></li><li class="menu-item"><a href="/admin/config/services/rss-publishing" title="Configure the site description, the number of items per feed, and whether feeds should be titles/teasers/full-text." class="toolbar-icon toolbar-icon-system-rss-feeds-settings" data-drupal-link-system-path="admin/config/services/rss-publishing">RSS publishing</a></li><li class="menu-item"><a href="/admin/config/services/linkset" title="Enable or disable the menu linkset endpoint" class="toolbar-icon toolbar-icon-system-linkset-settings" data-drupal-link-system-path="admin/config/services/linkset">Menu Linkset Settings</a></li><li class="menu-item"><a href="/admin/config/services/rest/oai-pmh" title="Settings for OAI-PMH endpoint" class="toolbar-icon toolbar-icon-rest-oai-pmh-rest-oai-pmh-settings-form" data-drupal-link-system-path="admin/config/services/rest/oai-pmh">OAI-PMH Settings</a></li></ul></li><li class="menu-item menu-item--expanded"><a href="/admin/config/bibcite" class="toolbar-icon toolbar-icon-bibcite-settings" title="" data-drupal-link-system-path="admin/config/bibcite">Bibliography &amp; Citation</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/config/citation-select" class="toolbar-icon toolbar-icon-citation-select-csl-map" title="" data-drupal-link-system-path="admin/config/citation-select">Citation Select CSL Mapping</a></li><li class="menu-item"><a href="/admin/config/bibcite" class="toolbar-icon toolbar-icon-bibcite-processing" title="" data-drupal-link-system-path="admin/config/bibcite">Processing</a></li></ul></li><li class="menu-item menu-item--expanded"><a href="/admin/config/islandora" class="toolbar-icon toolbar-icon-system-admin-config-islandora" title="" data-drupal-link-system-path="admin/config/islandora">Islandora</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/config/islandora/breadcrumbs" title="Configure Islandora breadcrumb settings" class="toolbar-icon toolbar-icon-system-islandora-breadcrumbs-settings" data-drupal-link-system-path="admin/config/islandora/breadcrumbs">Breadcrumbs Settings</a></li><li class="menu-item"><a href="/admin/config/islandora/core" title="Confgure core Islandora settings" class="toolbar-icon toolbar-icon-system-islandora-settings" data-drupal-link-system-path="admin/config/islandora/core">Core Settings</a></li><li class="menu-item"><a href="/admin/config/islandora/iiif" title="Configure Islandora IIIF settings" class="toolbar-icon toolbar-icon-islandora-iiif-islandora-iiif-config-form" data-drupal-link-system-path="admin/config/islandora/iiif">IIIF Settings</a></li></ul></li></ul></li><li class="menu-item"><a href="/admin/people" title="Manage user accounts, roles, and permissions." class="toolbar-icon toolbar-icon-entity-user-collection" data-drupal-link-system-path="admin/people">People</a></li><li class="menu-item menu-item--expanded"><a href="/admin/reports" title="View reports, updates, and errors." class="toolbar-icon toolbar-icon-system-admin-reports" data-drupal-link-system-path="admin/reports">Reports</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/reports/status" title="Get a status report about your site&#039;s operation." class="toolbar-icon toolbar-icon-system-status" data-drupal-link-system-path="admin/reports/status">Status report</a></li><li class="menu-item"><a href="/admin/reports/updates" title="Get a status report about available updates for your installed modules and themes." class="toolbar-icon toolbar-icon-update-status" data-drupal-link-system-path="admin/reports/updates">Available updates</a></li><li class="menu-item"><a href="/admin/reports/dblog" title="View events that have recently been logged." class="toolbar-icon toolbar-icon-dblog-overview" data-drupal-link-system-path="admin/reports/dblog">Recent log messages</a></li><li class="menu-item"><a href="/admin/reports/islandora/rdf_mappings" title="List of configured Drupal field to RDF property mappings and taxonomy term linked data URIs." class="toolbar-icon toolbar-icon-system-islandora-rdf-mappings" data-drupal-link-system-path="admin/reports/islandora/rdf_mappings">Field and term RDF mappings</a></li><li class="menu-item menu-item--expanded"><a href="/admin/reports/fields" title="Overview of fields on all entity types." class="toolbar-icon toolbar-icon-entity-field-storage-config-collection" data-drupal-link-system-path="admin/reports/fields">Field list</a><ul class="toolbar-menu"><li class="menu-item"><a href="/admin/reports/fields/field-report" title="Overview of fields on all entity bundles." class="toolbar-icon toolbar-icon-field-report-fields-report" data-drupal-link-system-path="admin/reports/fields/field-report">Field Report</a></li></ul></li><li class="menu-item"><a href="/admin/reports/migration-messages" title="View the migration messages." class="toolbar-icon toolbar-icon-migrate-messages" data-drupal-link-system-path="admin/reports/migration-messages">Migration messages</a></li><li class="menu-item"><a href="/admin/reports/fields/permissions" title="Report all permissions set." class="toolbar-icon toolbar-icon-field-permissions-reports" data-drupal-link-system-path="admin/reports/fields/permissions">Report all field permissions</a></li><li class="menu-item"><a href="/admin/reports/access-denied" title="View &#039;access denied&#039; errors (403s)." class="toolbar-icon toolbar-icon-dblog-access-denied" data-drupal-link-system-path="admin/reports/access-denied">Top &#039;access denied&#039; errors</a></li><li class="menu-item"><a href="/admin/reports/page-not-found" title="View &#039;page not found&#039; errors (404s)." class="toolbar-icon toolbar-icon-dblog-page-not-found" data-drupal-link-system-path="admin/reports/page-not-found">Top &#039;page not found&#039; errors</a></li><li class="menu-item"><a href="/admin/reports/views-plugins" title="Overview of plugins used in all views." class="toolbar-icon toolbar-icon-views-ui-reports-plugins" data-drupal-link-system-path="admin/reports/views-plugins">Views plugins</a></li></ul></li><li class="menu-item"><a href="/admin/help" title="Reference for usage, configuration, and modules." class="toolbar-icon toolbar-icon-help-main" data-drupal-link-system-path="admin/help">Help</a></li></ul></div></nav></div>      </div>
+                <div class="toolbar-tab">
+        <a href="/admin/config/user-interface/shortcut" title="Shortcuts" class="toolbar-icon toolbar-icon-shortcut trigger toolbar-item" id="toolbar-item-shortcuts" data-toolbar-tray="toolbar-item-shortcuts-tray" role="button" aria-pressed="false">Shortcuts</a>
+        <div id="toolbar-item-shortcuts-tray" data-toolbar-tray="toolbar-item-shortcuts-tray" class="toolbar-tray"><nav class="toolbar-lining clearfix" role="navigation" aria-label="User-defined shortcuts"><h3 class="toolbar-tray-name visually-hidden">User-defined shortcuts</h3><span data-big-pipe-placeholder-id="callback=shortcut.lazy_builders%3AlazyLinks&amp;&amp;token=5-XBI-QHgyU_l7Bu0FizHR7YBqK2bTVTBFF8Z0DVTis"><a href="#" class="toolbar-tray-lazy-placeholder-link">&nbsp;</a>
+</span></nav></div>      </div>
+                <div class="hidden contextual-toolbar-tab toolbar-tab">
+        <button class="toolbar-icon toolbar-icon-edit toolbar-item" aria-pressed="false" type="button">Edit</button>
+
+        <div><nav class="toolbar-lining clearfix" role="navigation"></nav></div>      </div>
+                <div class="tour-toolbar-tab hidden toolbar-tab" id="toolbar-tab-tour">
+        <button class="toolbar-icon toolbar-icon-help toolbar-item" aria-pressed="false" type="button">Tour</button>
+
+        <div><nav class="toolbar-lining clearfix" role="navigation"></nav></div>      </div>
+                <div class="toolbar-tab">
+        <a href="/user" title="My account" class="toolbar-icon toolbar-icon-user trigger toolbar-item" id="toolbar-item-user" data-toolbar-tray="toolbar-item-user-tray" role="button" aria-pressed="false"><span data-big-pipe-placeholder-id="callback=user.toolbar_link_builder%3ArenderDisplayName&amp;&amp;token=XGROnxBLjNjdNZJ_VcOhVZtenx2tDkIKPfojS_uZFXA">&nbsp;
+</span></a>
+        <div id="toolbar-item-user-tray" data-toolbar-tray="toolbar-item-user-tray" class="toolbar-tray"><nav class="toolbar-lining clearfix" role="navigation" aria-label="User account actions"><h3 class="toolbar-tray-name visually-hidden">User account actions</h3><span data-big-pipe-placeholder-id="callback=user.toolbar_link_builder%3ArenderToolbarLinks&amp;&amp;token=QPmvukHqpEJJ4rYEzUUFx0ERxrtfmQ9TMOp_hvyLHEk"><a href="#" class="toolbar-tray-lazy-placeholder-link">&nbsp;</a>
+</span></nav></div>      </div>
+                <div class="cai-empty toolbar-tab">
+        <a href="" title="Active context inspector" class="toolbar-icon toolbar-icon-context-active trigger toolbar-item" id="toolbar-item-context-active-inspector" data-toolbar-tray="toolbar-item-context-active-inspector-tray" role="button" aria-pressed="false">Active context</a>
+        <div id="toolbar-item-context-active-inspector-tray" data-toolbar-tray="toolbar-item-context-active-inspector-tray" class="toolbar-tray"><nav class="toolbar-lining clearfix" role="navigation" aria-label="Active context inspector"><h3 class="toolbar-tray-name visually-hidden">Active context inspector</h3><div class="item-list"><ul class="toolbar-menu"><li class="menu-item"><span>No contexts</span></li></ul></div></nav></div>      </div>
+                <div class="toolbar-tab">
+        <a href="/admin/config/development/devel" title="Development menu" class="toolbar-icon toolbar-icon-devel trigger toolbar-item" id="toolbar-item-devel" data-toolbar-tray="toolbar-item-devel-tray" role="button" aria-pressed="false">Devel</a>
+        <div id="toolbar-item-devel-tray" data-toolbar-tray="toolbar-item-devel-tray" class="toolbar-tray"><nav class="toolbar-lining clearfix" role="navigation" aria-label="Development menu"><h3 class="toolbar-tray-name visually-hidden">Development menu</h3><span data-big-pipe-placeholder-id="callback=devel.lazy_builders%3ArenderMenu&amp;&amp;token=3SaamyNrJZMMYe_kyv4Lc7-K5z3OkYidDaYEaMx_yVs">
+</span><a href="/admin/config/development/devel/toolbar" class="edit-devel-toolbar">Configure</a></nav></div>      </div>
+      </nav>
+  
+</div>
+
+      <div class="dialog-off-canvas-main-canvas d-flex flex-column h-100" data-off-canvas-main-canvas>
+    
+
+<header role="banner">
+  
+
+      <nav class="navbar navbar-expand-lg navbar-light text-dark bg-light">
+      <div class="container d-flex">
+          <div class="region region-nav-branding">
+    <div id="block-uofm-theme-branding" class="contextual-region block block-system block-system-branding-block">
+  
+    <div data-contextual-id="block:block=uofm_theme_branding:langcode=en" data-contextual-token="00BA-d7iKrK6X_20h5ChmutCm63Q0k4mZGqVveu8ryk" data-drupal-ajax-container=""></div>
+  <div class="navbar-brand d-flex align-items-center">
+
+    <a href="/" title="Home" rel="home" class="site-logo d-block">
+    <img src="/themes/contrib/uofm_theme/logo.svg" alt="Home" fetchpriority="high" />
+  </a>
+  
+  <div>
+        <a href="/" title="Home" rel="home" class="site-title">
+      DAMS 2.0 NG
+    </a>
+    
+      </div>
+</div>
+</div>
+
+  </div>
+
+
+                  <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                  aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-md-end" id="navbarSupportedContent">
+              <div class="region region-nav-main">
+    <span data-big-pipe-placeholder-id="callback=Drupal%5Cblock%5CBlockViewBuilder%3A%3AlazyBuilder&amp;args%5B0%5D=uofm_theme_search&amp;args%5B1%5D=full&amp;args%5B2%5D&amp;token=Sddp2EJa1ghS3czhDhD71_H4k2B73QhULOCfXLazZws">
+</span>
+  </div>
+
+              <div class="region region-nav-additional">
+    <nav role="navigation" aria-labelledby="block-uofm-theme-account-menu-menu" id="block-uofm-theme-account-menu" class="contextual-region block block-menu navigation menu--account">
+            
+  <h5 class="visually-hidden" id="block-uofm-theme-account-menu-menu">User account menu</h5>
+  <div data-contextual-id="block:block=uofm_theme_account_menu:langcode=en|menu:menu=account:langcode=en" data-contextual-token="GZtDM70V6XXVF5lw_-tUWCHUAcSZIlsRNU94bC2DRSg" data-drupal-ajax-container=""></div>
+
+        
+              <ul data-block="nav_additional" class="nav navbar-nav">
+                    <li class="nav-item">
+        <a href="/user" class="nav-link" data-drupal-link-system-path="user">My account</a>
+              </li>
+                <li class="nav-item">
+        <a href="/user/logout?token=uqIJgW6gS0x5MviTuShcsl-GfXwaqwLWXL5TgQ_oy2A" class="nav-link" data-drupal-link-system-path="user/logout">Log out</a>
+              </li>
+        </ul>
+  
+
+
+  </nav>
+
+  </div>
+
+          </div>
+              </div>
+    </nav>
+  
+</header>
+
+<main role="main">
+  <a id="main-content" tabindex="-1"></a>
+  
+  
+  
+
+  <div class="container">
+            <div class="region region-breadcrumb">
+    <div id="block-uofm-theme-breadcrumbs" class="contextual-region block block-system block-system-breadcrumb-block">
+  
+    <div data-contextual-id="block:block=uofm_theme_breadcrumbs:langcode=en" data-contextual-token="qMtZN660nUbd10RAhMdQkXhV3jnRahZBkr-W7OKnNbs" data-drupal-ajax-container=""></div>
+        <nav aria-label="breadcrumb">
+    <h2 id="system-breadcrumb" class="visually-hidden">Breadcrumb</h2>
+    <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+                  <a href="/">Home</a>
+              </li>
+        </ol>
+  </nav>
+
+  </div>
+
+  </div>
+
+        <div class="row g-0">
+              <div class="order-2 order-lg-1 col-12 col-lg-3">
+            <div class="region region-sidebar-first">
+    <div class="facet-inactive block-facets-ajax js-facet-block-id-uofm_theme_resourcetype contextual-region hidden block-facet--links block block-facets block-facet-blockresource-type" id="block-uofm-theme-resourcetype">
+  
+      <h2>Resource Type</h2>
+    <div data-contextual-id="block:block=uofm_theme_resourcetype:langcode=en|facets_facet:facets_facet=resource_type:langcode=en" data-contextual-token="PMNOY-ClGYVKjxqxve8oHM1PZCO4_jaWUnh33Ixw6NA" data-drupal-ajax-container=""></div>
+      <div data-drupal-facet-id="resource_type" class="facet-empty facet-hidden"><div class="facets-widget-links">
+      
+</div>
+</div>
+
+  </div>
+<div class="facet-inactive block-facets-ajax js-facet-block-id-uofm_theme_memberof contextual-region hidden block-facet--links block block-facets block-facet-blockmember-of" id="block-uofm-theme-memberof">
+  
+      <h2>Member of</h2>
+    <div data-contextual-id="block:block=uofm_theme_memberof:langcode=en|facets_facet:facets_facet=member_of:langcode=en" data-contextual-token="qtjs-LV665NdwcaHeS8STu_6_mKZfSa-0r500pJMT9c" data-drupal-ajax-container=""></div>
+      <div data-drupal-facet-id="member_of" class="facet-empty facet-hidden"><div class="facets-widget-links">
+      
+</div>
+</div>
+
+  </div>
+<div class="facet-inactive block-facets-ajax js-facet-block-id-uofm_theme_creatorsandcontributors contextual-region hidden block-facet--links block block-facets block-facet-blockcreators-and-contributors" id="block-uofm-theme-creatorsandcontributors">
+  
+      <h2>Creators and Contributors</h2>
+    <div data-contextual-id="block:block=uofm_theme_creatorsandcontributors:langcode=en|facets_facet:facets_facet=creators_and_contributors:langcode=en" data-contextual-token="k0TXR-8_-sPlPmWorNJd8SCVfESqrcj5bZkgQ4Kn6kc" data-drupal-ajax-container=""></div>
+      <div data-drupal-facet-id="creators_and_contributors" class="facet-empty facet-hidden"><div class="facets-widget-links">
+      
+</div>
+</div>
+
+  </div>
+<div class="facet-inactive block-facets-ajax js-facet-block-id-uofm_theme_physicalform contextual-region hidden block-facet--links block block-facets block-facet-blockphysical-form" id="block-uofm-theme-physicalform">
+  
+      <h2>Physical Form</h2>
+    <div data-contextual-id="block:block=uofm_theme_physicalform:langcode=en|facets_facet:facets_facet=physical_form:langcode=en" data-contextual-token="_x8637O71TqMx3DfoZQ0rbAwEUPm-FCt7hXXzXO149Q" data-drupal-ajax-container=""></div>
+      <div data-drupal-facet-id="physical_form" class="facet-empty facet-hidden"><div class="facets-widget-links">
+      
+</div>
+</div>
+
+  </div>
+<div class="facet-inactive block-facets-ajax js-facet-block-id-uofm_theme_subjectslinkedloc contextual-region hidden block-facet--links block block-facets block-facet-blocksubjects-linked-loc" id="block-uofm-theme-subjectslinkedloc">
+  
+      <h2>Subjects (Linked LoC)</h2>
+    <div data-contextual-id="block:block=uofm_theme_subjectslinkedloc:langcode=en|facets_facet:facets_facet=subjects_linked_loc:langcode=en" data-contextual-token="c4mWnP7hd2Duj1CDEV2fh08Z6aUlvtjUj0H86vQbTQI" data-drupal-ajax-container=""></div>
+      <div data-drupal-facet-id="subjects_linked_loc" class="facet-empty facet-hidden"><div class="facets-widget-links">
+      
+</div>
+</div>
+
+  </div>
+<div class="facet-inactive block-facets-ajax js-facet-block-id-uofm_theme_subjectnames contextual-region hidden block-facet--links block block-facets block-facet-blocksubject-name" id="block-uofm-theme-subjectnames">
+  
+      <h2>Subject (Names)</h2>
+    <div data-contextual-id="block:block=uofm_theme_subjectnames:langcode=en|facets_facet:facets_facet=subject_name:langcode=en" data-contextual-token="2_q0rcItF4gUrwJZF55w0cdjgLLT8-mR4ySkx2MOHFI" data-drupal-ajax-container=""></div>
+      <div data-drupal-facet-id="subject_name" class="facet-empty facet-hidden"><div class="facets-widget-links">
+      
+</div>
+</div>
+
+  </div>
+<div class="facet-inactive block-facets-ajax js-facet-block-id-uofm_theme_subjecttemporal contextual-region hidden block-facet--links block block-facets block-facet-blocktemporal-subject" id="block-uofm-theme-subjecttemporal">
+  
+      <h2>Subject (Temporal)</h2>
+    <div data-contextual-id="block:block=uofm_theme_subjecttemporal:langcode=en|facets_facet:facets_facet=temporal_subject:langcode=en" data-contextual-token="do5cg4_8ZtQSDssjQV24nBNdR8xVXGuCJOonBodMkqU" data-drupal-ajax-container=""></div>
+      <div data-drupal-facet-id="temporal_subject" class="facet-empty facet-hidden"><div class="facets-widget-links">
+      
+</div>
+</div>
+
+  </div>
+<div class="facet-inactive block-facets-ajax js-facet-block-id-uofm_theme_year contextual-region hidden block-facet--links block block-facets block-facet-blockyear" id="block-uofm-theme-year">
+  
+      <h2>Year</h2>
+    <div data-contextual-id="block:block=uofm_theme_year:langcode=en|facets_facet:facets_facet=year:langcode=en" data-contextual-token="KZOGKLEDZ6NE_7wvi2AZw_rdLB1bM9q4ZLC4UXXwtIY" data-drupal-ajax-container=""></div>
+      <div data-drupal-facet-id="year" class="facet-empty facet-hidden"><div class="facets-widget-links">
+      
+</div>
+</div>
+
+  </div>
+
+  </div>
+
+        </div>
+            <div class="order-1 order-lg-2 col-12 col-lg-9">
+                  <div class="above_content">
+               <div class="region region-above-content">
+    <div id="block-uofm-theme-page-title" class="contextual-region block block-core block-page-title-block">
+  
+    <div data-contextual-id="block:block=uofm_theme_page_title:langcode=en" data-contextual-token="JN6ePLuKX45K3xoEdMCLLKOHRUAJT9-sSsCyx40ALMI" data-drupal-ajax-container=""></div>
+      
+<h1>Search Content</h1>
+
+
+  </div>
+
+  </div>
+
+          </div>
+                <div class="main_content">
+           <div class="region region-content">
+    <div data-drupal-messages-fallback class="hidden"></div><span data-big-pipe-placeholder-id="callback=Drupal%5CCore%5CRender%5CElement%5CStatusMessages%3A%3ArenderMessages&amp;args%5B0%5D&amp;token=_HAdUpwWmet0TOTe2PSiJuMntExoshbm1kh2wQzzzAA">
+</span>
+<span data-big-pipe-placeholder-id="callback=Drupal%5Cblock%5CBlockViewBuilder%3A%3AlazyBuilder&amp;args%5B0%5D=uofm_theme_solrsearchcontentsearchresultspagerforsearchpage&amp;args%5B1%5D=full&amp;args%5B2%5D&amp;token=Vk_tuubVQEi-gFveuUfpxYx3vKeVPP99hECkAknoP7w">
+</span><div id="block-uofm-theme-content" class="block block-system block-system-main-block">
+  
+    
+      <div class="views-element-container contextual-region"><div class="view-list contextual-region view view-solr-search-content view-id-solr_search_content view-display-id-page_1 js-view-dom-id-db3bca14f4ec8cf857000fa91a987b73e9b72dc0b84e3590aa34a7a9af511bad">
+  
+    <div data-contextual-id="entity.view.edit_form:view=solr_search_content:location=page&amp;name=solr_search_content&amp;display_id=page_1&amp;langcode=en" data-contextual-token="5m9CdQAZO6a3GiUpdCY9hlGHTpSfeZvnjuwk_Qp4Xzg" data-drupal-ajax-container=""></div>
+      <div class="view-header">
+      <div id="ajax-page-summary" class="pager__summary">Displaying 1 - 8 of 8</div>
+    </div>
+      
+      <div class="view-content">
+          <div class="clearfix views-row"><h3 class="views-field views-field-title"><span class="field-content"><a href="/node/810" hreflang="en">Letter from Oakes and Riewe</a></span></h3><div class="views-field views-field-did-image"><span class="field-content">  <a href="/node/810" hreflang="en"><img loading="lazy" src="/sites/default/files/dams_ng/2025-03/1-Thumbnail%20Image.jpg" width="171" height="220" alt="1-Thumbnail Image.jpg" typeof="foaf:Image" class="img-fluid" />
+</a>
+</span></div><div class="views-field views-field-edtf-year"><span class="views-label views-label-edtf-year field__label">Year: </span><span class="field-content field__item">1991</span></div><div class="views-field views-field-member-of-title"><span class="views-label views-label-member-of-title field__label">Member of: </span><span class="field-content field__item">Jill Oakes fonds</span></div><div class="views-field views-field-field-linked-agent-name"><span class="views-label views-label-field-linked-agent-name field__label">Names: </span><span class="field-content field__item">Oakes, Jill, 1952 -, Riewe, Rick</span></div><div class="views-field views-field-field-description"><span class="views-label views-label-field-description field__label">Description: </span><span class="field-content field__item">A letter from Jill Oakes and Rick Riewe with accompanying documents regarding an exhibit at the Bata <strong>Shoe</strong> Museum.</span></div><div class="views-field views-field-search-api-excerpt"><span class="views-label views-label-search-api-excerpt field__label">Full Text: </span><span class="field-content field__item">… For copyright information please contact archives@umanitoba.ca …</span></div></div>
+    <div class="clearfix views-row"><h3 class="views-field views-field-title"><span class="field-content"><a href="/node/1457" hreflang="en">Letter from Oakes and Riewe</a></span></h3><div class="views-field views-field-did-image"><span class="field-content">  <a href="/node/1457" hreflang="en"><img loading="lazy" src="/sites/default/files/dams_ng/2025-03/1-Thumbnail%20Image.jpg" width="171" height="220" alt="1-Thumbnail Image.jpg" typeof="foaf:Image" class="img-fluid" />
+</a>
+</span></div><div class="views-field views-field-edtf-year"><span class="views-label views-label-edtf-year field__label">Year: </span><span class="field-content field__item">1991</span></div><div class="views-field views-field-member-of-title"><span class="views-label views-label-member-of-title field__label">Member of: </span><span class="field-content field__item">Letter from Oakes and Riewe</span></div><div class="views-field views-field-field-linked-agent-name"><span class="views-label views-label-field-linked-agent-name field__label">Names: </span><span class="field-content field__item">Oakes, Jill, 1952 -, Riewe, Rick</span></div><div class="views-field views-field-field-description"><span class="views-label views-label-field-description field__label">Description: </span><span class="field-content field__item">A letter from Jill Oakes and Rick Riewe with accompanying documents regarding an exhibit at the Bata <strong>Shoe</strong> Museum.</span></div><div class="views-field views-field-search-api-excerpt"><span class="views-label views-label-search-api-excerpt field__label">Full Text: </span><span class="field-content field__item">… For copyright information please contact archives@umanitoba.ca …</span></div></div>
+    <div class="clearfix views-row"><h3 class="views-field views-field-title"><span class="field-content"><a href="/node/1458" hreflang="en">Letter from Oakes and Riewe</a></span></h3><div class="views-field views-field-did-image"><span class="field-content">  <a href="/node/1458" hreflang="en"><img loading="lazy" src="/sites/default/files/dams_ng/2025-03/2-Thumbnail%20Image.jpg" width="171" height="220" alt="2-Thumbnail Image.jpg" typeof="foaf:Image" class="img-fluid" />
+</a>
+</span></div><div class="views-field views-field-edtf-year"><span class="views-label views-label-edtf-year field__label">Year: </span><span class="field-content field__item">1991</span></div><div class="views-field views-field-member-of-title"><span class="views-label views-label-member-of-title field__label">Member of: </span><span class="field-content field__item">Letter from Oakes and Riewe</span></div><div class="views-field views-field-field-linked-agent-name"><span class="views-label views-label-field-linked-agent-name field__label">Names: </span><span class="field-content field__item">Oakes, Jill, 1952 -, Riewe, Rick</span></div><div class="views-field views-field-field-description"><span class="views-label views-label-field-description field__label">Description: </span><span class="field-content field__item">A letter from Jill Oakes and Rick Riewe with accompanying documents regarding an exhibit at the Bata <strong>Shoe</strong> Museum.</span></div><div class="views-field views-field-search-api-excerpt"><span class="views-label views-label-search-api-excerpt field__label">Full Text: </span><span class="field-content field__item">… For copyright information please contact archives@umanitoba.ca …</span></div></div>
+    <div class="clearfix views-row"><h3 class="views-field views-field-title"><span class="field-content"><a href="/node/1459" hreflang="en">Letter from Oakes and Riewe</a></span></h3><div class="views-field views-field-did-image"><span class="field-content">  <a href="/node/1459" hreflang="en"><img loading="lazy" src="/sites/default/files/dams_ng/2025-03/3-Thumbnail%20Image.jpg" width="172" height="220" alt="3-Thumbnail Image.jpg" typeof="foaf:Image" class="img-fluid" />
+</a>
+</span></div><div class="views-field views-field-edtf-year"><span class="views-label views-label-edtf-year field__label">Year: </span><span class="field-content field__item">1991</span></div><div class="views-field views-field-member-of-title"><span class="views-label views-label-member-of-title field__label">Member of: </span><span class="field-content field__item">Letter from Oakes and Riewe</span></div><div class="views-field views-field-field-linked-agent-name"><span class="views-label views-label-field-linked-agent-name field__label">Names: </span><span class="field-content field__item">Oakes, Jill, 1952 -, Riewe, Rick</span></div><div class="views-field views-field-field-description"><span class="views-label views-label-field-description field__label">Description: </span><span class="field-content field__item">A letter from Jill Oakes and Rick Riewe with accompanying documents regarding an exhibit at the Bata <strong>Shoe</strong> Museum.</span></div><div class="views-field views-field-search-api-excerpt"><span class="views-label views-label-search-api-excerpt field__label">Full Text: </span><span class="field-content field__item">… For copyright information please contact archives@umanitoba.ca …</span></div></div>
+    <div class="clearfix views-row"><h3 class="views-field views-field-title"><span class="field-content"><a href="/node/1460" hreflang="en">Letter from Oakes and Riewe</a></span></h3><div class="views-field views-field-did-image"><span class="field-content">  <a href="/node/1460" hreflang="en"><img loading="lazy" src="/sites/default/files/dams_ng/2025-03/4-Thumbnail%20Image.jpg" width="171" height="220" alt="4-Thumbnail Image.jpg" typeof="foaf:Image" class="img-fluid" />
+</a>
+</span></div><div class="views-field views-field-edtf-year"><span class="views-label views-label-edtf-year field__label">Year: </span><span class="field-content field__item">1991</span></div><div class="views-field views-field-member-of-title"><span class="views-label views-label-member-of-title field__label">Member of: </span><span class="field-content field__item">Letter from Oakes and Riewe</span></div><div class="views-field views-field-field-linked-agent-name"><span class="views-label views-label-field-linked-agent-name field__label">Names: </span><span class="field-content field__item">Oakes, Jill, 1952 -, Riewe, Rick</span></div><div class="views-field views-field-field-description"><span class="views-label views-label-field-description field__label">Description: </span><span class="field-content field__item">A letter from Jill Oakes and Rick Riewe with accompanying documents regarding an exhibit at the Bata <strong>Shoe</strong> Museum.</span></div><div class="views-field views-field-search-api-excerpt"><span class="views-label views-label-search-api-excerpt field__label">Full Text: </span><span class="field-content field__item">… For copyright information please contact archives@umanitoba.ca …</span></div></div>
+    <div class="clearfix views-row"><h3 class="views-field views-field-title"><span class="field-content"><a href="/node/1461" hreflang="en">Letter from Oakes and Riewe</a></span></h3><div class="views-field views-field-did-image"><span class="field-content">  <a href="/node/1461" hreflang="en"><img loading="lazy" src="/sites/default/files/dams_ng/2025-03/5-Thumbnail%20Image.jpg" width="171" height="220" alt="5-Thumbnail Image.jpg" typeof="foaf:Image" class="img-fluid" />
+</a>
+</span></div><div class="views-field views-field-edtf-year"><span class="views-label views-label-edtf-year field__label">Year: </span><span class="field-content field__item">1991</span></div><div class="views-field views-field-member-of-title"><span class="views-label views-label-member-of-title field__label">Member of: </span><span class="field-content field__item">Letter from Oakes and Riewe</span></div><div class="views-field views-field-field-linked-agent-name"><span class="views-label views-label-field-linked-agent-name field__label">Names: </span><span class="field-content field__item">Oakes, Jill, 1952 -, Riewe, Rick</span></div><div class="views-field views-field-field-description"><span class="views-label views-label-field-description field__label">Description: </span><span class="field-content field__item">A letter from Jill Oakes and Rick Riewe with accompanying documents regarding an exhibit at the Bata <strong>Shoe</strong> Museum.</span></div><div class="views-field views-field-search-api-excerpt"><span class="views-label views-label-search-api-excerpt field__label">Full Text: </span><span class="field-content field__item">… For copyright information please contact archives@umanitoba.ca …</span></div></div>
+    <div class="clearfix views-row"><h3 class="views-field views-field-title"><span class="field-content"><a href="/node/1462" hreflang="en">Letter from Oakes and Riewe</a></span></h3><div class="views-field views-field-did-image"><span class="field-content">  <a href="/node/1462" hreflang="en"><img loading="lazy" src="/sites/default/files/dams_ng/2025-03/6-Thumbnail%20Image.jpg" width="171" height="220" alt="6-Thumbnail Image.jpg" typeof="foaf:Image" class="img-fluid" />
+</a>
+</span></div><div class="views-field views-field-edtf-year"><span class="views-label views-label-edtf-year field__label">Year: </span><span class="field-content field__item">1991</span></div><div class="views-field views-field-member-of-title"><span class="views-label views-label-member-of-title field__label">Member of: </span><span class="field-content field__item">Letter from Oakes and Riewe</span></div><div class="views-field views-field-field-linked-agent-name"><span class="views-label views-label-field-linked-agent-name field__label">Names: </span><span class="field-content field__item">Oakes, Jill, 1952 -, Riewe, Rick</span></div><div class="views-field views-field-field-description"><span class="views-label views-label-field-description field__label">Description: </span><span class="field-content field__item">A letter from Jill Oakes and Rick Riewe with accompanying documents regarding an exhibit at the Bata <strong>Shoe</strong> Museum.</span></div><div class="views-field views-field-search-api-excerpt"><span class="views-label views-label-search-api-excerpt field__label">Full Text: </span><span class="field-content field__item">… For copyright information please contact archives@umanitoba.ca …</span></div></div>
+    <div class="clearfix views-row"><h3 class="views-field views-field-title"><span class="field-content"><a href="/node/1463" hreflang="en">Letter from Oakes and Riewe</a></span></h3><div class="views-field views-field-did-image"><span class="field-content">  <a href="/node/1463" hreflang="en"><img loading="lazy" src="/sites/default/files/dams_ng/2025-03/7-Thumbnail%20Image.jpg" width="171" height="220" alt="7-Thumbnail Image.jpg" typeof="foaf:Image" class="img-fluid" />
+</a>
+</span></div><div class="views-field views-field-edtf-year"><span class="views-label views-label-edtf-year field__label">Year: </span><span class="field-content field__item">1991</span></div><div class="views-field views-field-member-of-title"><span class="views-label views-label-member-of-title field__label">Member of: </span><span class="field-content field__item">Letter from Oakes and Riewe</span></div><div class="views-field views-field-field-linked-agent-name"><span class="views-label views-label-field-linked-agent-name field__label">Names: </span><span class="field-content field__item">Oakes, Jill, 1952 -, Riewe, Rick</span></div><div class="views-field views-field-field-description"><span class="views-label views-label-field-description field__label">Description: </span><span class="field-content field__item">A letter from Jill Oakes and Rick Riewe with accompanying documents regarding an exhibit at the Bata <strong>Shoe</strong> Museum.</span></div><div class="views-field views-field-search-api-excerpt"><span class="views-label views-label-search-api-excerpt field__label">Full Text: </span><span class="field-content field__item">… For copyright information please contact archives@umanitoba.ca …</span></div></div>
+
+    </div>
+  
+      
+          </div>
+</div>
+
+  </div>
+<span data-big-pipe-placeholder-id="callback=Drupal%5Cblock%5CBlockViewBuilder%3A%3AlazyBuilder&amp;args%5B0%5D=uofm_theme_solrsearchcontentsearchresultspagerforsearchpage_2&amp;args%5B1%5D=full&amp;args%5B2%5D&amp;token=jyMB74SLs9NnJ6pcZQVY0NdxwtwlSdX_2gCFu23n6Sw">
+</span>
+  </div>
+
+        </div>
+      </div>
+          </div>
+  </div>
+
+</main>
+
+  <footer role="contentinfo" class="mt-auto   footer-light text-dark bg-">
+    <div class="container">
+        <div class="region region-footer">
+    <nav role="navigation" aria-labelledby="block-uofm-theme-footer-menu" id="block-uofm-theme-footer" class="contextual-region block block-menu navigation menu--footer">
+            
+  <h5 class="visually-hidden" id="block-uofm-theme-footer-menu">Footer</h5>
+  <div data-contextual-id="block:block=uofm_theme_footer:langcode=en|menu:menu=footer:langcode=en" data-contextual-token="mFp6X2ZOio_Ue8D2ImJaOVhIFJZ1yRi-cjX5xkCR-Mo" data-drupal-ajax-container=""></div>
+
+        
+              <ul data-block="footer" class="nav navbar-nav">
+                    <li class="nav-item">
+        <a href="/contact" class="nav-link" data-drupal-link-system-path="contact">Contact</a>
+              </li>
+        </ul>
+  
+
+
+  </nav>
+<div id="block-uofm-theme-powered-by-drupal" class="contextual-region block block-system block-system-powered-by-block">
+  
+    <div data-contextual-id="block:block=uofm_theme_powered_by_drupal:langcode=en" data-contextual-token="0erNpNJmQu9duKIMvKMpa_qVU-JE6kAofmZdBd_0KJQ" data-drupal-ajax-container=""></div>
+      <span>Powered by <a href="https://www.drupal.org">Drupal</a></span>
+  </div>
+
+  </div>
+
+    </div>
+  </footer>
+
+  </div>
+
+    
+  </div>
+  <!-- End: container -->
+</main>
+<!-- Begin: footer -->
+<footer class="uom-footer">
+  <div class="uom-main-footer container">
+    <section class="site-footer top">
+      <a href="https://umanitoba.ca/libraries/" class="site-footer-logo">
+        <!-- <img src="//apps.lib.umanitoba.ca/public/imgs/sprites/logos/logo.svg" alt="Home"> -->
+        <img src="//apps.lib.umanitoba.ca/public/imgs/ngwe/logos/uml_logo_vert_192w.png" alt="Home">
+      </a>
+      <nav class="float-right">
+        <ul class="menu">
+          <li class="menu-item">
+            <a href="http://umanitoba.ca/careers/">Careers</a>
+          </li>
+          <li class="menu-item">
+            <a href="http://umanitoba.ca/admin/mco/contactus.html">Media</a>
+          </li>
+          <li class="menu-item">
+            <a href="http://umanitoba.ca/people">People search</a>
+          </li>
+          <li class="menu-item">
+            <a href="https://research.ad.umanitoba.ca/mrt/pubapp/exp_search.php">Research experts</a>
+          </li>
+          <li class="menu-item">
+            <a href="http://umanitoba.ca/admin/vp_admin/ofp/ohrcm/accessibility/">Web accessibility</a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <section class="site-footer bottom text-align-right" style="overflow: hidden">
+      <address class="align-left float-left">
+        <p>
+          <strong>University of Manitoba Libraries</strong>
+          <br>
+          <span>Winnipeg, Manitoba, Canada</span>
+        </p>
+        <a href="https://umanitoba.ca/visit-university-manitoba" class="uom-btn">Maps and directions</a>
+      </address>
+      <div class="contact align-left float-left">
+        <nav class="contact-telephone">
+          <a href="tel:+1-204-474-9881">1-204-474-9881 (Winnipeg)</a>
+          <br>
+          <a href="tel:+1-204-474-9341">Emergency: 204-474-9341</a>
+          <br>
+          <a href="http://umanitoba.ca/campus/security/contact.html" class="decorated"><strong>Emergency Information</strong></a>
+        </nav>
+        <nav class="contact-social">
+          <ul class="social-links" aria-label="University of Manitoba Social Media Accounts">
+            <li class="social-link-item">
+              <a href="https://twitter.com/UM_Libraries" class="external-link" target="_blank" aria-label="Follow us on Twitter">
+                <img src="//apps.lib.umanitoba.ca/public/imgs/ngwe/icon-twitter.png" alt="Search Icon" />
+              </a>
+            </li>
+            <li class="social-link-item">
+              <a href="https://www.facebook.com/umanitoba" class="external-link" target="_blank" aria-label="Follow us on Facebook">
+                <img src="//apps.lib.umanitoba.ca/public/imgs/ngwe/icon-facebook.png" alt="Search Icon" />
+              </a>
+            </li>
+            <li class="social-link-item">
+              <a href="https://www.instagram.com/umanitobalibraries/" class="external-link" target="_blank" aria-label="Follow us on Instagram">
+                <img src="//apps.lib.umanitoba.ca/public/imgs/ngwe/icon-instagram.png" alt="Search Icon" />
+              </a>
+            </li>
+            <li class="social-link-item">
+              <a href="https://www.youtube.com/user/UManitobaLibraries" class="external-link" target="_blank" aria-label="Follow us on YouTube">
+                <img src="//apps.lib.umanitoba.ca/public/imgs/ngwe/icon-youtube.png" alt="Search Icon" />
+              </a>
+            </li>
+            <li class="social-link-item">
+              <a href="http://umanitoba.ca/admin/mco/new_media/socialmedia.html" class="all-socials">
+                <span>All social</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="campaign-and-legal align-right">
+        <div class="campaign">
+          <a href="https://frontandcentre.cc.umanitoba.ca/">
+            <img src="//apps.lib.umanitoba.ca/public/imgs/front-and-centre-logo.png" alt="Logo for Front and Centre">
+          </a>
+          <a href="https://frontandcentre.cc.umanitoba.ca/">The Campaign for the University of Manitoba</a>
+        </div>
+        <div class="legal">
+          <nav class="legal-navigation">
+            <ul class="menu">
+              <li class="menu-item">
+                <a href="http://umanitoba.ca/access_and_privacy/Privacy_Statement.html">Privacy policy</a>
+              </li>
+              <li class="menu-item">
+                <a href="http://umanitoba.ca/admin/vp_admin/ofp/termsofuse.html">Terms of use</a>
+              </li>
+              <li class="menu-item">
+                <a href="mailto:libsupp@umanitoba.ca">Website feedback</a>
+              </li>
+              <li class="menu-item">
+                <span id="copyright">&copy; 2020 University of Manitoba</span>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </section>
+  </div>
+</footer>
+
+    <!-- UML branded page bottom -->
+    <!-- End: footer -->
+<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{"baseUrl":"\/","pathPrefix":"","currentPath":"search","currentPathIsAdmin":false,"isFront":false,"currentLanguage":"en","currentQuery":{"a":[{"f":"all","i":"IS","v":"shoe"}],"f":["subjects_linked_loc:Letters"]}},"pluralDelimiter":"\u0003","suppressDeprecationErrors":true,"ajaxPageState":{"libraries":"eJx9UkFywyAM_BCGUx_Ql3hkUGxSsBgknLSvLzYlSTNpL6DVrlYIABf9OgpRmCCbn11LRlTwJ6UX2jBXwQarRTcyQraL6Vg3rBPMVTX5eUw-oemBmoiEJUN6MxPwb3wLhzMPAQRZHvk50ARhYPkMfp0fmYjMtR8rS6vgVUaw4jcc_coJrdBtgi4oEIzLJUHQ98xQbT_4f8ndJ2OnW7OjuuVXyhGC_0LlcMNqs6-30hNYFO7FDenFY97vzVsIrxW7_XDxbkZ5Ldg8XniAM1w7z3SSeqzoa4XH4MaMibKYAwwNqAhCkUzbFC81Z4t0744Vf7JgbG_2_C2QLSR8379M5cpOlKwKneIoC0Z8frnCmHuDPda-3jCrYwBzrPoY4zERyZWA340UC90","theme":"uofm_theme","theme_token":null},"ajaxTrustedUrl":[],"bigPipePlaceholderIds":{"callback=Drupal%5Cblock%5CBlockViewBuilder%3A%3AlazyBuilder\u0026args%5B0%5D=uofm_theme_solrsearchcontentsearchresultspagerforsearchpage_2\u0026args%5B1%5D=full\u0026args%5B2%5D\u0026token=jyMB74SLs9NnJ6pcZQVY0NdxwtwlSdX_2gCFu23n6Sw":true,"callback=Drupal%5Cblock%5CBlockViewBuilder%3A%3AlazyBuilder\u0026args%5B0%5D=uofm_theme_solrsearchcontentsearchresultspagerforsearchpage\u0026args%5B1%5D=full\u0026args%5B2%5D\u0026token=Vk_tuubVQEi-gFveuUfpxYx3vKeVPP99hECkAknoP7w":true,"callback=Drupal%5CCore%5CRender%5CElement%5CStatusMessages%3A%3ArenderMessages\u0026args%5B0%5D\u0026token=_HAdUpwWmet0TOTe2PSiJuMntExoshbm1kh2wQzzzAA":true,"callback=Drupal%5Cblock%5CBlockViewBuilder%3A%3AlazyBuilder\u0026args%5B0%5D=uofm_theme_search\u0026args%5B1%5D=full\u0026args%5B2%5D\u0026token=Sddp2EJa1ghS3czhDhD71_H4k2B73QhULOCfXLazZws":true,"callback=devel.lazy_builders%3ArenderMenu\u0026\u0026token=3SaamyNrJZMMYe_kyv4Lc7-K5z3OkYidDaYEaMx_yVs":true,"callback=user.toolbar_link_builder%3ArenderToolbarLinks\u0026\u0026token=QPmvukHqpEJJ4rYEzUUFx0ERxrtfmQ9TMOp_hvyLHEk":true,"callback=user.toolbar_link_builder%3ArenderDisplayName\u0026\u0026token=XGROnxBLjNjdNZJ_VcOhVZtenx2tDkIKPfojS_uZFXA":true,"callback=shortcut.lazy_builders%3AlazyLinks\u0026\u0026token=5-XBI-QHgyU_l7Bu0FizHR7YBqK2bTVTBFF8Z0DVTis":true},"matomo":{"disableCookies":false,"trackMailto":true},"views":{"ajax_path":"\/views\/ajax","ajaxViews":{"views_dom_id:db3bca14f4ec8cf857000fa91a987b73e9b72dc0b84e3590aa34a7a9af511bad":{"view_name":"solr_search_content","view_display_id":"page_1","view_args":"","view_path":"\/search","view_base_path":"search","view_dom_id":"db3bca14f4ec8cf857000fa91a987b73e9b72dc0b84e3590aa34a7a9af511bad","pager_element":0}}},"facets_views_ajax":{"year":{"view_id":"solr_search_content","current_display_id":"page_1","view_base_path":"search","ajax_path":"\/views\/ajax"},"temporal_subject":{"view_id":"solr_search_content","current_display_id":"page_1","view_base_path":"search","ajax_path":"\/views\/ajax"},"subject_name":{"view_id":"solr_search_content","current_display_id":"page_1","view_base_path":"search","ajax_path":"\/views\/ajax"},"subjects_linked_loc":{"view_id":"solr_search_content","current_display_id":"page_1","view_base_path":"search","ajax_path":"\/views\/ajax"},"physical_form":{"view_id":"solr_search_content","current_display_id":"page_1","view_base_path":"search","ajax_path":"\/views\/ajax"},"creators_and_contributors":{"view_id":"solr_search_content","current_display_id":"page_1","view_base_path":"search","ajax_path":"\/views\/ajax"},"member_of":{"view_id":"solr_search_content","current_display_id":"page_1","view_base_path":"search","ajax_path":"\/views\/ajax"},"resource_type":{"view_id":"solr_search_content","current_display_id":"page_1","view_base_path":"search","ajax_path":"\/views\/ajax"}},"facets":{"softLimit":{"temporal_subject":10,"subject_name":10,"physical_form":10,"creators_and_contributors":10},"softLimitSettings":{"temporal_subject":{"showLessLabel":"Show less","showMoreLabel":"Show more"},"subject_name":{"showLessLabel":"Show less","showMoreLabel":"Show more"},"physical_form":{"showLessLabel":"Show less","showMoreLabel":"Show more"},"creators_and_contributors":{"showLessLabel":"Show less","showMoreLabel":"Show more"}}},"toolbar":{"breakpoints":{"toolbar.narrow":"only screen and (min-width: 16.5em)","toolbar.standard":"only screen and (min-width: 38.125em)","toolbar.wide":"only screen and (min-width: 61em)"},"subtreesHash":"S7mh1AsFu_1oDU0kdDGvlcuFVEcDhM4CjcIYTSJC-v8"},"user":{"uid":"2","permissionsHash":"is-admin"}}</script>
+<script src="/sites/default/files/dams_ng/js/js_c72eTKKT3D0OBQz2dUtJbbFjs4s9SZUn7P9Q-j88Jx4.js?scope=footer&amp;delta=0&amp;language=en&amp;theme=uofm_theme&amp;include=eJx9kEkOgzAMRS-UYdUD9CTIBENDExwlDnD8EiBCQm03nt73IEPn7dQwkWsh6tMrjogCfiL1ohmjaO3QBBtQ10C0RJw4QnjoK5Rjkg4YEwtDE-PKGZzuYg7g1FWRzk7v9F9yHrGJIlYMhu2Me7fowSCnSo5MFSIX2w3I3wWzxSVJGGGtPFHP20RvWXhg8qQPJ27fuOcKk4GAz_K5jeUCchT7Ar1bVdZ8AOlpkJQ"></script>
+
+<script type="application/vnd.drupal-ajax" data-big-pipe-event="start"></script>
+<script type="application/vnd.drupal-ajax" data-big-pipe-replacement-for-placeholder-with-id="callback=shortcut.lazy_builders%3AlazyLinks&amp;&amp;token=5-XBI-QHgyU_l7Bu0FizHR7YBqK2bTVTBFF8Z0DVTis">
+[{"command":"insert","method":"replaceWith","selector":"[data-big-pipe-placeholder-id=\u0022callback=shortcut.lazy_builders%3AlazyLinks\u0026\u0026token=5-XBI-QHgyU_l7Bu0FizHR7YBqK2bTVTBFF8Z0DVTis\u0022]","data":"\u003Cul class=\u0022toolbar-menu\u0022\u003E\u003Cli\u003E\u003Ca href=\u0022\/admin\/content\u0022\u003EContent\u003C\/a\u003E\u003C\/li\u003E\u003Cli\u003E\u003Ca href=\u0022\/admin\/reports\/status\u0022\u003EStatus report\u003C\/a\u003E\u003C\/li\u003E\u003C\/ul\u003E\u003Ca href=\u0022\/admin\/config\/user-interface\/shortcut\/manage\/default\/customize\u0022 class=\u0022edit-shortcuts\u0022\u003EEdit shortcuts\u003C\/a\u003E","settings":null}]
+</script><script type="application/vnd.drupal-ajax" data-big-pipe-replacement-for-placeholder-with-id="callback=user.toolbar_link_builder%3ArenderDisplayName&amp;&amp;token=XGROnxBLjNjdNZJ_VcOhVZtenx2tDkIKPfojS_uZFXA">
+[{"command":"insert","method":"replaceWith","selector":"[data-big-pipe-placeholder-id=\u0022callback=user.toolbar_link_builder%3ArenderDisplayName\u0026\u0026token=XGROnxBLjNjdNZJ_VcOhVZtenx2tDkIKPfojS_uZFXA\u0022]","data":"Jared Whiklo","settings":null}]
+</script><script type="application/vnd.drupal-ajax" data-big-pipe-replacement-for-placeholder-with-id="callback=user.toolbar_link_builder%3ArenderToolbarLinks&amp;&amp;token=QPmvukHqpEJJ4rYEzUUFx0ERxrtfmQ9TMOp_hvyLHEk">
+[{"command":"insert","method":"replaceWith","selector":"[data-big-pipe-placeholder-id=\u0022callback=user.toolbar_link_builder%3ArenderToolbarLinks\u0026\u0026token=QPmvukHqpEJJ4rYEzUUFx0ERxrtfmQ9TMOp_hvyLHEk\u0022]","data":"\u003Cul class=\u0022toolbar-menu\u0022\u003E\u003Cli\u003E\u003Ca href=\u0022\/user\u0022 title=\u0022User account\u0022\u003EView profile\u003C\/a\u003E\u003C\/li\u003E\u003Cli\u003E\u003Ca href=\u0022\/user\/2\/edit\u0022 title=\u0022Edit user account\u0022\u003EEdit profile\u003C\/a\u003E\u003C\/li\u003E\u003Cli\u003E\u003Ca href=\u0022\/user\/logout?token=uqIJgW6gS0x5MviTuShcsl-GfXwaqwLWXL5TgQ_oy2A\u0022\u003ELog out\u003C\/a\u003E\u003C\/li\u003E\u003C\/ul\u003E","settings":null}]
+</script><script type="application/vnd.drupal-ajax" data-big-pipe-replacement-for-placeholder-with-id="callback=devel.lazy_builders%3ArenderMenu&amp;&amp;token=3SaamyNrJZMMYe_kyv4Lc7-K5z3OkYidDaYEaMx_yVs">
+[{"command":"insert","method":"replaceWith","selector":"[data-big-pipe-placeholder-id=\u0022callback=devel.lazy_builders%3ArenderMenu\u0026\u0026token=3SaamyNrJZMMYe_kyv4Lc7-K5z3OkYidDaYEaMx_yVs\u0022]","data":"\n              \u003Cul class=\u0022toolbar-menu nav navbar-nav\u0022\u003E\n                    \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/cache\/clear?destination=\/search\u0026amp;token=tg9l018PneaEFFequ_He1ptYTbfnlUm4VwbdhpmK4fE\u0022 class=\u0022nav-link\u0022 data-drupal-link-query=\u0022{\u0026quot;destination\u0026quot;:\u0026quot;\\\/search\u0026quot;}\u0022 data-drupal-link-system-path=\u0022devel\/cache\/clear\u0022\u003ECache clear\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/config\u0022 title=\u0022Edit configuration.\u0022 class=\u0022toolbar-horizontal-item-hidden nav-link\u0022 data-drupal-link-system-path=\u0022devel\/config\u0022\u003EConfig editor\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/container\/service\u0022 class=\u0022nav-link\u0022 data-drupal-link-system-path=\u0022devel\/container\/service\u0022\u003EContainer Info\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/routes\/item?path=\/search\u0022 class=\u0022toolbar-horizontal-item-hidden nav-link\u0022 data-drupal-link-query=\u0022{\u0026quot;path\u0026quot;:\u0026quot;\\\/search\u0026quot;}\u0022 data-drupal-link-system-path=\u0022devel\/routes\/item\u0022\u003ECurrent route info\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/admin\/config\/development\/devel\u0022 title=\u0022Helper functions, pages, and blocks to assist Drupal developers. The devel blocks can be managed via the block administration page.\u0022 class=\u0022nav-link\u0022 data-drupal-link-system-path=\u0022admin\/config\/development\/devel\u0022\u003EDevel settings\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/elements\u0022 class=\u0022toolbar-horizontal-item-hidden nav-link\u0022 data-drupal-link-system-path=\u0022devel\/elements\u0022\u003EElement Info\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/entity\/info\u0022 class=\u0022toolbar-horizontal-item-hidden nav-link\u0022 data-drupal-link-system-path=\u0022devel\/entity\/info\u0022\u003EEntity Info\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/events\u0022 class=\u0022toolbar-horizontal-item-hidden nav-link\u0022 data-drupal-link-system-path=\u0022devel\/events\u0022\u003EEvents Info\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/field\/info\u0022 class=\u0022toolbar-horizontal-item-hidden nav-link\u0022 data-drupal-link-system-path=\u0022devel\/field\/info\u0022\u003EField Info\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/admin\/reports\/status\/php\u0022 class=\u0022toolbar-horizontal-item-hidden nav-link\u0022 data-drupal-link-system-path=\u0022admin\/reports\/status\/php\u0022\u003EPHPinfo()\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/menu\/reset?destination=\/search\u0022 class=\u0022nav-link\u0022 data-drupal-link-query=\u0022{\u0026quot;destination\u0026quot;:\u0026quot;\\\/search\u0026quot;}\u0022 data-drupal-link-system-path=\u0022devel\/menu\/reset\u0022\u003ERebuild Menu\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/reinstall?destination=\/search\u0022 class=\u0022nav-link\u0022 data-drupal-link-query=\u0022{\u0026quot;destination\u0026quot;:\u0026quot;\\\/search\u0026quot;}\u0022 data-drupal-link-system-path=\u0022devel\/reinstall\u0022\u003EReinstall Modules\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/routes\u0022 class=\u0022nav-link\u0022 data-drupal-link-system-path=\u0022devel\/routes\u0022\u003ERoutes Info\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/run-cron?destination=\/search\u0026amp;token=3sODWv4UNzm1o_MlV-PD1oun0j2pdN6-P0kOjJ2mBO4\u0022 class=\u0022nav-link\u0022 data-drupal-link-query=\u0022{\u0026quot;destination\u0026quot;:\u0026quot;\\\/search\u0026quot;}\u0022 data-drupal-link-system-path=\u0022devel\/run-cron\u0022\u003ERun cron\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/state\u0022 title=\u0022Edit state system values.\u0022 class=\u0022toolbar-horizontal-item-hidden nav-link\u0022 data-drupal-link-system-path=\u0022devel\/state\u0022\u003EState editor\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/switch-user\u0022 class=\u0022toolbar-horizontal-item-hidden nav-link\u0022 data-drupal-link-system-path=\u0022devel\/switch-user\u0022\u003ESwitch user\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/theme\/registry\u0022 class=\u0022toolbar-horizontal-item-hidden nav-link\u0022 data-drupal-link-system-path=\u0022devel\/theme\/registry\u0022\u003ETheme registry\u003C\/a\u003E\n              \u003C\/li\u003E\n                \u003Cli class=\u0022nav-item\u0022\u003E\n        \u003Ca href=\u0022\/devel\/session\u0022 class=\u0022toolbar-horizontal-item-hidden nav-link\u0022 data-drupal-link-system-path=\u0022devel\/session\u0022\u003EView Session\u003C\/a\u003E\n              \u003C\/li\u003E\n        \u003C\/ul\u003E\n  \n\n","settings":null}]
+</script><script type="application/vnd.drupal-ajax" data-big-pipe-replacement-for-placeholder-with-id="callback=Drupal%5Cblock%5CBlockViewBuilder%3A%3AlazyBuilder&amp;args%5B0%5D=uofm_theme_search&amp;args%5B1%5D=full&amp;args%5B2%5D&amp;token=Sddp2EJa1ghS3czhDhD71_H4k2B73QhULOCfXLazZws">
+[{"command":"settings","settings":{"ajaxPageState":{"theme":"uofm_theme","libraries":"eJx9UkFywyAM_BCGUx_Ql3hkUGxSsBgknLSvLzYlSTNpL6DVrlYIABf9OgpRmCCbn11LRlTwJ6UX2jBXwQarRTcyQraL6Vg3rBPMVTX5eUw-oemBmoiEJUN6MxPwb3wLhzMPAQRZHvk50ARhYPkMfp0fmYjMtR8rS6vgVUaw4jcc_coJrdBtgi4oEIzLJUHQ98xQbT_4f8ndJ2OnW7OjuuVXyhGC_0LlcMNqs6-30hNYFO7FDenFY97vzVsIrxW7_XDxbkZ5Ldg8XniAM1w7z3SSeqzoa4XH4MaMibKYAwwNqAhCkUzbFC81Z4t0744Vf7JgbG_2_C2QLSR8379M5cpOlKwKneIoC0Z8frnCmHuDPda-3jCrYwBzrPoY4zERyZWA340UC90"},"ajaxTrustedUrl":{"form_action_p_pvdeGsVG5zNF_XLGPTvYSKCf43t8qZYSwcfZl2uzM":true},"pluralDelimiter":"\u0003","user":{"uid":"2","permissionsHash":"is-admin"}},"merge":true},{"command":"insert","method":"replaceWith","selector":"[data-big-pipe-placeholder-id=\u0022callback=Drupal%5Cblock%5CBlockViewBuilder%3A%3AlazyBuilder\u0026args%5B0%5D=uofm_theme_search\u0026args%5B1%5D=full\u0026args%5B2%5D\u0026token=Sddp2EJa1ghS3czhDhD71_H4k2B73QhULOCfXLazZws\u0022]","data":"\u003Cdiv class=\u0022search-form contextual-region block block-advanced-search block-search-block\u0022 data-drupal-selector=\u0022search-form\u0022 id=\u0022block-uofm-theme-search\u0022\u003E\n  \n    \u003Cdiv data-contextual-id=\u0022block:block=uofm_theme_search:langcode=en\u0022 data-contextual-token=\u0022xRSRytRfbsLhWqRgKTitxah8dpPGmh1vJ6TbZLfakys\u0022 data-drupal-ajax-container=\u0022\u0022\u003E\u003C\/div\u003E\n      \u003Cform data-block=\u0022nav_main\u0022 action=\u0022\/search?a%5B0%5D%5Bf%5D=all\u0026amp;a%5B0%5D%5Bi%5D=IS\u0026amp;a%5B0%5D%5Bv%5D=shoe\u0026amp;f%5B0%5D=subjects_linked_loc%3ALetters\u0022 method=\u0022post\u0022 id=\u0022search-form\u0022 accept-charset=\u0022UTF-8\u0022\u003E\n  \n  \u003Cinput placeholder=\u0022\u0022 aria-label=\u0022\u0022 data-drupal-selector=\u0022edit-search-textfield\u0022 type=\u0022text\u0022 id=\u0022edit-search-textfield\u0022 name=\u0022search-textfield\u0022 value=\u0022\u0022 size=\u002260\u0022 maxlength=\u0022128\u0022 class=\u0022form-text form-control\u0022 \/\u003E\n\n\n  \u003Cinput autocomplete=\u0022off\u0022 data-drupal-selector=\u0022form-6xczm7ekkxzqiu-ptnwjveivm1jjar9inkkh4jz8b3i\u0022 type=\u0022hidden\u0022 name=\u0022form_build_id\u0022 value=\u0022form-6xcZM7eKKXZqIU-ptnWJveivM1Jjar9INkkh4Jz8B3I\u0022 \/\u003E\n\n\n  \u003Cinput data-drupal-selector=\u0022edit-search-form-form-token\u0022 type=\u0022hidden\u0022 name=\u0022form_token\u0022 value=\u00226q1t2-xSbowUg92QVdyS73nfsEQCZM4-3kBFXltJWI4\u0022 \/\u003E\n\n\n  \u003Cinput data-drupal-selector=\u0022edit-search-form\u0022 type=\u0022hidden\u0022 name=\u0022form_id\u0022 value=\u0022search_form\u0022 \/\u003E\n\n\u003Cdiv data-drupal-selector=\u0022edit-actions\u0022 class=\u0022form-actions js-form-wrapper form-wrapper\u0022 id=\u0022edit-actions--2\u0022\u003E\n    \u003Cinput data-drupal-selector=\u0022edit-submit\u0022 type=\u0022submit\u0022 id=\u0022edit-submit\u0022 name=\u0022op\u0022 value=\u0022Search\u0022 class=\u0022button button--primary js-form-submit form-submit btn btn-primary\u0022 \/\u003E\n\n\u003C\/div\u003E\n\n\u003C\/form\u003E\n\n  \u003C\/div\u003E\n","settings":null}]
+</script><script type="application/vnd.drupal-ajax" data-big-pipe-replacement-for-placeholder-with-id="callback=Drupal%5CCore%5CRender%5CElement%5CStatusMessages%3A%3ArenderMessages&amp;args%5B0%5D&amp;token=_HAdUpwWmet0TOTe2PSiJuMntExoshbm1kh2wQzzzAA">
+[{"command":"insert","method":"replaceWith","selector":"[data-big-pipe-placeholder-id=\u0022callback=Drupal%5CCore%5CRender%5CElement%5CStatusMessages%3A%3ArenderMessages\u0026args%5B0%5D\u0026token=_HAdUpwWmet0TOTe2PSiJuMntExoshbm1kh2wQzzzAA\u0022]","data":"","settings":null}]
+</script><script type="application/vnd.drupal-ajax" data-big-pipe-replacement-for-placeholder-with-id="callback=Drupal%5Cblock%5CBlockViewBuilder%3A%3AlazyBuilder&amp;args%5B0%5D=uofm_theme_solrsearchcontentsearchresultspagerforsearchpage&amp;args%5B1%5D=full&amp;args%5B2%5D&amp;token=Vk_tuubVQEi-gFveuUfpxYx3vKeVPP99hECkAknoP7w">
+[{"command":"settings","settings":{"ajaxPageState":{"theme":"uofm_theme","libraries":"eJx9UkFywyAM_BCGUx_Ql3hkUGxSsBgknLSvLzYlSTNpL6DVrlYIABf9OgpRmCCbn11LRlTwJ6UX2jBXwQarRTcyQraL6Vg3rBPMVTX5eUw-oemBmoiEJUN6MxPwb3wLhzMPAQRZHvk50ARhYPkMfp0fmYjMtR8rS6vgVUaw4jcc_coJrdBtgi4oEIzLJUHQ98xQbT_4f8ndJ2OnW7OjuuVXyhGC_0LlcMNqs6-30hNYFO7FDenFY97vzVsIrxW7_XDxbkZ5Ldg8XniAM1w7z3SSeqzoa4XH4MaMibKYAwwNqAhCkUzbFC81Z4t0744Vf7JgbG_2_C2QLSR8379M5cpOlKwKneIoC0Z8frnCmHuDPda-3jCrYwBzrPoY4zERyZWA340UC90"},"advanced_search_pager_views_ajax":{"solr_search_content__page_1":{"view_id":"solr_search_content","current_display_id":"page_1","ajax_path":"\/views\/ajax"}},"pluralDelimiter":"\u0003","user":{"uid":"2","permissionsHash":"is-admin"}},"merge":true},{"command":"insert","method":"replaceWith","selector":"[data-big-pipe-placeholder-id=\u0022callback=Drupal%5Cblock%5CBlockViewBuilder%3A%3AlazyBuilder\u0026args%5B0%5D=uofm_theme_solrsearchcontentsearchresultspagerforsearchpage\u0026args%5B1%5D=full\u0026args%5B2%5D\u0026token=Vk_tuubVQEi-gFveuUfpxYx3vKeVPP99hECkAknoP7w\u0022]","data":"\u003Cdiv class=\u0022advanced_search_result_pager contextual-region block block-advanced-search block-advanced-search-result-pagersolr-search-content__page-1\u0022 data-drupal-pager-id=\u0022solr_search_content__page_1\u0022 id=\u0022block-uofm-theme-solrsearchcontentsearchresultspagerforsearchpage\u0022\u003E\n  \n    \u003Cdiv data-contextual-id=\u0022block:block=uofm_theme_solrsearchcontentsearchresultspagerforsearchpage:langcode=en\u0022 data-contextual-token=\u0022OqiVsYsEG4WKvlGNoRcz4YNXeRGSLrGcOfnNMcifXOw\u0022 data-drupal-ajax-container=\u0022\u0022\u003E\u003C\/div\u003E\n      \u003Cdiv class=\u0022pager__summary\u0022\u003EDisplaying 1 - 8 of 8\u003C\/div\u003E\u003Cdiv class=\u0022pager__group\u0022\u003E\u003Cdiv class=\u0022pager__results container item-list\u0022\u003E\u003Ch3\u003EResults per page\u003C\/h3\u003E\u003Cul\u003E\u003Cli class=\u0022pager__item is-active\u0022\u003E\u003Ca href=\u0022https:\/\/dams-ng.lib.umanitoba.ca\/search?a%5B0%5D%5Bf%5D=all\u0026amp;a%5B0%5D%5Bi%5D=IS\u0026amp;a%5B0%5D%5Bv%5D=shoe\u0026amp;f%5B0%5D=subjects_linked_loc%3ALetters\u0026amp;items_per_page=15\u0026amp;page=0\u0022 aria-label=\u002215 items per page\u0022 class=\u0022pager__link pager__link--is-active pager__itemsperpage\u0022\u003E15\u003C\/a\u003E\u003C\/li\u003E\u003Cli class=\u0022pager__item\u0022\u003E\u003Ca href=\u0022https:\/\/dams-ng.lib.umanitoba.ca\/search?a%5B0%5D%5Bf%5D=all\u0026amp;a%5B0%5D%5Bi%5D=IS\u0026amp;a%5B0%5D%5Bv%5D=shoe\u0026amp;f%5B0%5D=subjects_linked_loc%3ALetters\u0026amp;items_per_page=60\u0026amp;page=0\u0022 aria-label=\u002260 items per page\u0022 class=\u0022pager__link pager__itemsperpage\u0022\u003E60\u003C\/a\u003E\u003C\/li\u003E\u003Cli class=\u0022pager__item\u0022\u003E\u003Ca href=\u0022https:\/\/dams-ng.lib.umanitoba.ca\/search?a%5B0%5D%5Bf%5D=all\u0026amp;a%5B0%5D%5Bi%5D=IS\u0026amp;a%5B0%5D%5Bv%5D=shoe\u0026amp;f%5B0%5D=subjects_linked_loc%3ALetters\u0026amp;items_per_page=120\u0026amp;page=0\u0022 aria-label=\u0022120 items per page\u0022 class=\u0022pager__link pager__itemsperpage\u0022\u003E120\u003C\/a\u003E\u003C\/li\u003E\u003C\/ul\u003E\u003C\/div\u003E\u003Cdiv class=\u0022pager__display container item-list\u0022\u003E\u003Cul\u003E\u003Cli class=\u0022pager__item is-active\u0022\u003E\u003Ca href=\u0022https:\/\/dams-ng.lib.umanitoba.ca\/search?a%5B0%5D%5Bf%5D=all\u0026amp;a%5B0%5D%5Bi%5D=IS\u0026amp;a%5B0%5D%5Bv%5D=shoe\u0026amp;f%5B0%5D=subjects_linked_loc%3ALetters\u0026amp;display=list\u0022 class=\u0022pager__link pager__link--is-active pager__display\u0022 aria-label=\u0022Display as \u00a0List\u0022\u003E\u003Ci class=\u0027fa fa-list\u0027 aria-hidden=\u0027true\u0027\u003E\u0026nbsp;\u003C\/i\u003E\u003Cspan class=\u0027display-mode\u0027\u003EList\u003C\/span\u003E\u003C\/a\u003E\u003C\/li\u003E\u003Cli class=\u0022pager__item\u0022\u003E\u003Ca href=\u0022https:\/\/dams-ng.lib.umanitoba.ca\/search?a%5B0%5D%5Bf%5D=all\u0026amp;a%5B0%5D%5Bi%5D=IS\u0026amp;a%5B0%5D%5Bv%5D=shoe\u0026amp;f%5B0%5D=subjects_linked_loc%3ALetters\u0026amp;display=grid\u0022 class=\u0022pager__link pager__display\u0022 aria-label=\u0022Display as \u00a0Grid\u0022\u003E\u003Ci class=\u0027fa fa-th\u0027 aria-hidden=\u0027true\u0027\u003E\u0026nbsp;\u003C\/i\u003E\u003Cspan class=\u0027display-mode\u0027\u003EGrid\u003C\/span\u003E\u003C\/a\u003E\u003C\/li\u003E\u003C\/ul\u003E\u003C\/div\u003E\u003Cdiv class=\u0022pager__sort container js-form-item form-item js-form-type-select form-type-select js-form-item-order form-item-order form-no-label\u0022\u003E\n      \u003Clabel class=\u0022visually-hidden\u0022\u003ESort\u003C\/label\u003E\n        \u003Cselect autocomplete=\u0022off\u0022 aria-label=\u0022Sort By\u0022 name=\u0022order\u0022 class=\u0022form-select form-control\u0022\u003E\u003Coption value=\u0022search_api_relevance_asc\u0022\u003ERelevance \u2193\u003C\/option\u003E\u003Coption value=\u0022search_api_relevance_desc\u0022 selected=\u0022selected\u0022\u003ERelevance \u2191\u003C\/option\u003E\u003Coption value=\u0022title_asc\u0022\u003ETitle \u2193\u003C\/option\u003E\u003Coption value=\u0022title_desc\u0022\u003ETitle \u2191\u003C\/option\u003E\u003Coption value=\u0022edtf_year_asc\u0022\u003EYear \u2193\u003C\/option\u003E\u003Coption value=\u0022edtf_year_desc\u0022\u003EYear \u2191\u003C\/option\u003E\u003C\/select\u003E\n        \u003C\/div\u003E\n\u003C\/div\u003E\n  \u003C\/div\u003E\n","settings":null}]
+</script><script type="application/vnd.drupal-ajax" data-big-pipe-replacement-for-placeholder-with-id="callback=Drupal%5Cblock%5CBlockViewBuilder%3A%3AlazyBuilder&amp;args%5B0%5D=uofm_theme_solrsearchcontentsearchresultspagerforsearchpage_2&amp;args%5B1%5D=full&amp;args%5B2%5D&amp;token=jyMB74SLs9NnJ6pcZQVY0NdxwtwlSdX_2gCFu23n6Sw">
+[{"command":"settings","settings":{"ajaxPageState":{"theme":"uofm_theme","libraries":"eJx9UkFywyAM_BCGUx_Ql3hkUGxSsBgknLSvLzYlSTNpL6DVrlYIABf9OgpRmCCbn11LRlTwJ6UX2jBXwQarRTcyQraL6Vg3rBPMVTX5eUw-oemBmoiEJUN6MxPwb3wLhzMPAQRZHvk50ARhYPkMfp0fmYjMtR8rS6vgVUaw4jcc_coJrdBtgi4oEIzLJUHQ98xQbT_4f8ndJ2OnW7OjuuVXyhGC_0LlcMNqs6-30hNYFO7FDenFY97vzVsIrxW7_XDxbkZ5Ldg8XniAM1w7z3SSeqzoa4XH4MaMibKYAwwNqAhCkUzbFC81Z4t0744Vf7JgbG_2_C2QLSR8379M5cpOlKwKneIoC0Z8frnCmHuDPda-3jCrYwBzrPoY4zERyZWA340UC90"},"advanced_search_pager_views_ajax":{"solr_search_content__page_1":{"view_id":"solr_search_content","current_display_id":"page_1","ajax_path":"\/views\/ajax"}},"pluralDelimiter":"\u0003","user":{"uid":"2","permissionsHash":"is-admin"}},"merge":true},{"command":"insert","method":"replaceWith","selector":"[data-big-pipe-placeholder-id=\u0022callback=Drupal%5Cblock%5CBlockViewBuilder%3A%3AlazyBuilder\u0026args%5B0%5D=uofm_theme_solrsearchcontentsearchresultspagerforsearchpage_2\u0026args%5B1%5D=full\u0026args%5B2%5D\u0026token=jyMB74SLs9NnJ6pcZQVY0NdxwtwlSdX_2gCFu23n6Sw\u0022]","data":"\u003Cdiv class=\u0022advanced_search_result_pager contextual-region block block-advanced-search block-advanced-search-result-pagersolr-search-content__page-1\u0022 data-drupal-pager-id=\u0022solr_search_content__page_1\u0022 id=\u0022block-uofm-theme-solrsearchcontentsearchresultspagerforsearchpage-2\u0022\u003E\n  \n      \u003Ch2\u003ESolr search content: Search Results Pager for Search Page\u003C\/h2\u003E\n    \u003Cdiv data-contextual-id=\u0022block:block=uofm_theme_solrsearchcontentsearchresultspagerforsearchpage_2:langcode=en\u0022 data-contextual-token=\u0022rSmL1VWtr1oeqdill52Xm-iQDoShgYOKHaoaHCZl1xQ\u0022 data-drupal-ajax-container=\u0022\u0022\u003E\u003C\/div\u003E\n      \u003Cdiv class=\u0022pager__summary\u0022\u003EDisplaying 1 - 8 of 8\u003C\/div\u003E\u003Cdiv class=\u0022pager__group\u0022\u003E\u003Cdiv class=\u0022pager__results container item-list\u0022\u003E\u003Ch3\u003EResults per page\u003C\/h3\u003E\u003Cul\u003E\u003Cli class=\u0022pager__item is-active\u0022\u003E\u003Ca href=\u0022https:\/\/dams-ng.lib.umanitoba.ca\/search?a%5B0%5D%5Bf%5D=all\u0026amp;a%5B0%5D%5Bi%5D=IS\u0026amp;a%5B0%5D%5Bv%5D=shoe\u0026amp;f%5B0%5D=subjects_linked_loc%3ALetters\u0026amp;items_per_page=15\u0026amp;page=0\u0022 aria-label=\u002215 items per page\u0022 class=\u0022pager__link pager__link--is-active pager__itemsperpage\u0022\u003E15\u003C\/a\u003E\u003C\/li\u003E\u003Cli class=\u0022pager__item\u0022\u003E\u003Ca href=\u0022https:\/\/dams-ng.lib.umanitoba.ca\/search?a%5B0%5D%5Bf%5D=all\u0026amp;a%5B0%5D%5Bi%5D=IS\u0026amp;a%5B0%5D%5Bv%5D=shoe\u0026amp;f%5B0%5D=subjects_linked_loc%3ALetters\u0026amp;items_per_page=60\u0026amp;page=0\u0022 aria-label=\u002260 items per page\u0022 class=\u0022pager__link pager__itemsperpage\u0022\u003E60\u003C\/a\u003E\u003C\/li\u003E\u003Cli class=\u0022pager__item\u0022\u003E\u003Ca href=\u0022https:\/\/dams-ng.lib.umanitoba.ca\/search?a%5B0%5D%5Bf%5D=all\u0026amp;a%5B0%5D%5Bi%5D=IS\u0026amp;a%5B0%5D%5Bv%5D=shoe\u0026amp;f%5B0%5D=subjects_linked_loc%3ALetters\u0026amp;items_per_page=120\u0026amp;page=0\u0022 aria-label=\u0022120 items per page\u0022 class=\u0022pager__link pager__itemsperpage\u0022\u003E120\u003C\/a\u003E\u003C\/li\u003E\u003C\/ul\u003E\u003C\/div\u003E\u003Cdiv class=\u0022pager__display container item-list\u0022\u003E\u003Cul\u003E\u003Cli class=\u0022pager__item is-active\u0022\u003E\u003Ca href=\u0022https:\/\/dams-ng.lib.umanitoba.ca\/search?a%5B0%5D%5Bf%5D=all\u0026amp;a%5B0%5D%5Bi%5D=IS\u0026amp;a%5B0%5D%5Bv%5D=shoe\u0026amp;f%5B0%5D=subjects_linked_loc%3ALetters\u0026amp;display=list\u0022 class=\u0022pager__link pager__link--is-active pager__display\u0022 aria-label=\u0022Display as \u00a0List\u0022\u003E\u003Ci class=\u0027fa fa-list\u0027 aria-hidden=\u0027true\u0027\u003E\u0026nbsp;\u003C\/i\u003E\u003Cspan class=\u0027display-mode\u0027\u003EList\u003C\/span\u003E\u003C\/a\u003E\u003C\/li\u003E\u003Cli class=\u0022pager__item\u0022\u003E\u003Ca href=\u0022https:\/\/dams-ng.lib.umanitoba.ca\/search?a%5B0%5D%5Bf%5D=all\u0026amp;a%5B0%5D%5Bi%5D=IS\u0026amp;a%5B0%5D%5Bv%5D=shoe\u0026amp;f%5B0%5D=subjects_linked_loc%3ALetters\u0026amp;display=grid\u0022 class=\u0022pager__link pager__display\u0022 aria-label=\u0022Display as \u00a0Grid\u0022\u003E\u003Ci class=\u0027fa fa-th\u0027 aria-hidden=\u0027true\u0027\u003E\u0026nbsp;\u003C\/i\u003E\u003Cspan class=\u0027display-mode\u0027\u003EGrid\u003C\/span\u003E\u003C\/a\u003E\u003C\/li\u003E\u003C\/ul\u003E\u003C\/div\u003E\u003Cdiv class=\u0022pager__sort container js-form-item form-item js-form-type-select form-type-select js-form-item-order form-item-order form-no-label\u0022\u003E\n      \u003Clabel class=\u0022visually-hidden\u0022\u003ESort\u003C\/label\u003E\n        \u003Cselect autocomplete=\u0022off\u0022 aria-label=\u0022Sort By\u0022 name=\u0022order\u0022 class=\u0022form-select form-control\u0022\u003E\u003Coption value=\u0022search_api_relevance_asc\u0022\u003ERelevance \u2193\u003C\/option\u003E\u003Coption value=\u0022search_api_relevance_desc\u0022 selected=\u0022selected\u0022\u003ERelevance \u2191\u003C\/option\u003E\u003Coption value=\u0022title_asc\u0022\u003ETitle \u2193\u003C\/option\u003E\u003Coption value=\u0022title_desc\u0022\u003ETitle \u2191\u003C\/option\u003E\u003Coption value=\u0022edtf_year_asc\u0022\u003EYear \u2193\u003C\/option\u003E\u003Coption value=\u0022edtf_year_desc\u0022\u003EYear \u2191\u003C\/option\u003E\u003C\/select\u003E\n        \u003C\/div\u003E\n\u003C\/div\u003E\n  \u003C\/div\u003E\n","settings":null}]
+</script>
+<script type="application/vnd.drupal-ajax" data-big-pipe-event="stop"></script>
+</body>
+</html>

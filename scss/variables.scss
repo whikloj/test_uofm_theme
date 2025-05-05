@@ -1,0 +1,105 @@
+/* VARIABLES */
+
+// U of M Theme colours
+$uom-primary-blue: #385e9d;
+$uom-secondary-blue: #4370bb;
+$uom-tertiary-blue: #1e63ad;
+
+$uom-primary-yellow: #f2A900;
+$uom-secondary-yellow: #ffba1c;
+$uom-tertiary-yellow: #FBB315;
+$uom-yellow-4: #f8f5ee;
+
+$uom-primary-brown: #4f2c1d;
+$uom-secondary-brown: #362925;
+$uom-tertiary-brown: #4D2700;
+$uom-brown-4: #562E18;
+
+$uom-primary-green: #004F2E;
+
+$uom-primary-white: #f1f1f1;
+$uom-secondary-white: #eeeeee;
+$uom-tertiary-white: #dcdcdc;
+$uom-white-4: #ccc;
+$uom-white-5: #F4F4F3;
+
+$uom-primary-grey: #bcbec0;
+$uom-secondary-grey: #575757;
+$uom-tertiary-grey: #747474;
+$uom-grey-4: #808080;
+$uom-grey-5: #bec4c6;
+$uom-grey-6: #6b7069;
+
+$uom-primary-black: #200800;
+
+$mobile-link: #222;
+
+// colors
+$primary-shade: $uom-primary-brown;
+$primary-light: tint-color($primary-shade, 37%);
+$primary-dark: shade-color($primary-shade, 12%);
+$accent-shade: $uom-primary-blue;
+$accent-light: tint-color($accent-shade, 37%);
+$accent-dark: shade-color($accent-shade, 12%);
+// Reassign color vars to semantic color scheme
+$red: #dc3545;
+$yellow: #ffc107;
+$green: #28a745;
+$cyan: #17a2b8;
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-800: #343a40;
+// scss-docs-start theme-color-variables
+$primary: $accent-shade;
+$secondary: $primary-shade;
+$success: $green;
+$info: $cyan;
+$warning: $yellow;
+$danger: $red;
+$brand-primary: $uom-primary-black;
+$light: $gray-100;
+$dark: $gray-800;
+//$brand-success: $green;
+//$brand-info: $teal;
+//$brand-warning: $orange;
+//$brand-danger: $red;
+$brand-inverse: $primary-shade;
+// Body
+//
+// Settings for the `<body>` element.
+$body-bg: $white;
+$body-color: $gray-800;
+$inverse-bg: $primary-shade;
+$inverse-color: $white;
+// Links
+//
+// Style anchor elements.
+//$link-color: $accent-shade;
+$link-decoration: none;
+//$link-hover-color: $accent-dark;
+//$link-hover-decoration: underline;
+// Comments
+$comment-spacer-x: 1.25em;
+$comment-spacer-y: 1.25em;
+// Responsive font sizes
+$enable-responsive-font-sizes: true;
+$enable-shadows: false;
+$enable-gradients: false;
+// Breadcrumbs (Works only on Bootstrap 5+)
+// $breadcrumb-divider: quote(">");
+$enable-caret: true;
+// U of M specific configuration
+// Footer background colour
+$uom-footer-bg: $uom-primary-white;
+// Social link colour
+$uom-social-link-color: $uom-primary-blue;
+// Social link hover colour
+$uom-social-link-hover-color: $uom-secondary-blue;
+$uom-mobile-drawer-territory-border-color: $uom-primary-yellow;
+$uom-mobile-drawer-link-color: $uom-primary-black;
+$uom-mobile-drawer-border-color: $uom-primary-grey;
+$uom-mobile-drawer-background-color: $uom-footer-bg;
+
+$uom-header-search-background-color: $uom-social-link-color;
+
+$uom-mini-close-thin-color: $uom-primary-brown;
