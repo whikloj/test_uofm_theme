@@ -447,18 +447,38 @@ html {
   }
 }
 
+/* Common theme for search input and button */
+%header-search-form {
+  margin: 1rem 0;
+  flex-basis: fit-content;
+}
 
 #navbar-main {
-  padding: 0 0.25rem;
+  padding: 0 0.5rem;
   .navbar-brand {
     img {
       display: none !important;
+    }
+  }
+  div.search-form {
+    .content {
+      form {
+        display: flex;
+        input {
+          @extend %header-search-form;
+          margin-right: 0.5rem;
+        }
+        div.form-actions {
+          @extend %header-search-form;
+        }
+      }
     }
   }
 }
 
 /* !important needed to override the tabs.scss */
 nav.tabs {
+  margin-top: 1rem;
   ul {
     background-color: transparent !important;
     border: none !important;
@@ -472,6 +492,29 @@ nav.tabs {
       }
     }
   }
+}
+
+%field_labels {
+  font-weight: bold;
+  &:after {
+    content: ':';
+  }
+}
+
+.field {
+  &.field--type-entity-reference {
+    margin: 0;
+    .field__label {
+      @extend %field_labels;
+    }
+  }
+  .field__label {
+    @extend %field_labels;
+  }
+}
+
+div.block-views {
+  margin-top: 1rem;
 }
 
 .u-link-decoration {

@@ -30,6 +30,11 @@ a {
     background: $primary-shade !important;
 }
 
+.breadcrumb {
+  --bs-breadcrumb-divider: ">";
+  align-items: baseline;
+}
+
 .site-footer {
     background: transparent;
 }
